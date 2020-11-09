@@ -1,0 +1,13 @@
+.container {
+    text-align: center;
+    align-items: center;
+};
+
+.boton {
+    width: 100%;
+    margin: 5px;
+}
+
+.error{
+    color: red;
+};

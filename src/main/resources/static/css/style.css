@@ -1,0 +1,16 @@
+body {
+    background-color: rgb(241, 241, 241) !important;
+    font-family: 'Libre Franklin', sans-serif !important;
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight: 200 !important;
+}
+textarea {
+    resize: none;
+}
+
+#count_message {
+  background-color: smoke;
+  margin-top: -20px;
+  margin-right: 5px;
+}
