@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7dbf90a20f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/estilosAdminGestProfe.css">
+    <title>Asociar Secciones, Profesores, Alumnos</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-5">
+                        <div class="row">
+                            <div class="col-12">
+                                <h5>Datos de la Nueva Sección</h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="form-group">
+                                    <label for="">Código</label> <br>
+                                    <input class="form-control" type="text"><br>
+                                </div>
+                            </div>
+                            <div class="col-7">
+                                <div class="form-group">
+                                    <label for="">Curso</label> <br>
+                                    <select class="browser-default custom-select">
+                                        <option selected></option>
+                                        <!--<option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option> -->
+                                      </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <button class="btn btn-primary small"><i class="fas fa-check"></i>  Actualizar Datos</button>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-12">
+                                <h5>Datos del Profesor</h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="form-group">
+                                    <label for="">Código</label> <br>
+                                    <input class="form-control" type="text"><br>
+                                </div>
+                            </div>
+                            <div class="col-7">
+                                <div class="form-group">
+                                    <label for="">Nombre</label> <br>
+                                    <input class="form-control" type="text"><br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <button class="btn btn-primary small"><i class="fas fa-check"></i>  Registrar Profesor</button>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-12">
+                                <h5>Datos Jefe de Prácticas (Opicional)</h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="form-group">
+                                    <label for="">Código</label> <br>
+                                    <input class="form-control" type="text"><br>
+                                </div>
+                            </div>
+                            <div class="col-7">
+                                <div class="form-group">
+                                    <label for="">Nombre</label> <br>
+                                    <input class="form-control" type="text"><br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <button class="btn btn-primary small"><i class="fas fa-check"></i>  <small>Registrar Jefe de Prácticas</small></button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-danger"><i class="fas fa-times"></i>  <small>Actualizar Datos</small></button>
+                            </div>
+                        </div><br>
+                    
+                    </div>
+                        
+                    <div class="col-7">
+                        <div class="row">
+                            <div class="col-5">
+                                <h5>Alumnos de la Seccion</h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h7>Carga Masiva</h7>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-4">
+                                <button class="btn btn-primary"><i class="far fa-file-code"></i> Seleccionar Archivo</button>
+                            </div>
+                            <div class="col-3">
+                                <button class="btn btn-warning"><i class="fas fa-cloud-upload-alt"></i>  Subir</button>
+                            </div>
+                            <div class="col-4">
+                                <button class="btn btn-info"><i class="fas fa-check"></i>  Actualizar Datos</button>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-12">
+                                <table class="table table-striped small">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Código</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Carrera</th>
+                                        <th scope="col">Género</th>
+                                        <th colspan="2" scope="col">Operaciones</th>         
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td>2020001</td>
+                                        <td>Juan Perez</td>
+                                        <td>Ingenieria</td>
+                                        <td>Femenino</td>
+                                        <td></td>
+                                        <td>
+                                          <a class="text-dark" href="#"><i class="fas fa-pencil-alt"></i></a>
+                                        </td>
+                                        <td>
+                                          <button type="submit"><i class="fas fa-times"></i></button>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>           
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+</body>
