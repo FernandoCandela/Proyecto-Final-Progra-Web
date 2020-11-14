@@ -12,15 +12,21 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "ECAREER")
-@Table(name = "TCAREER")
-public class Career implements Serializable {
+@Entity(name = "ESECTION")
+@Table(name = "TSECTION")
+public class Section implements Serializable {
 
     @Id
     @Column(name = "ID", nullable = false)
     private Integer id;
 
-    @Column(name = "NAME", length = 25, nullable = false)
-    private String name;
+    @Column(name = "CODE", nullable = false)
+    private Integer code;
+
+    @Column(name = "COURSE_ID", nullable = false)
+    private Integer course_id;
+
+    @Column(name = "PERIOD_ID", nullable = false)
+    private Integer period_id;
 
 }

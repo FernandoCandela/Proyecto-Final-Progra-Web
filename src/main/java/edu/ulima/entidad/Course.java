@@ -1,4 +1,3 @@
-
 package edu.ulima.entidad;
 
 import java.io.Serializable;
@@ -15,20 +14,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity(name = "ECOURSE")
 @Table(name = "TCOURSE")
-public class Course implements Serializable{
-    
+public class Course implements Serializable {
+
     @Id
-    @Column(name = "ID",nullable = false )
-    private int id ;
-    
-    @Column(name = "CODE",nullable = false )
-    private int code;
-    
-    @Column(name = "NAME",length = 25,nullable = false )
+    @Column(name = "ID", nullable = false)
+    private Integer id;
+
+    @Column(name = "CODE", nullable = false)
+    private Integer code;
+
+    @Column(name = "NAME", length = 25, nullable = false)
     private String name;
-    
-    @Column(name = "CAREER_ID",nullable = false )
-    private int career_id;  
-    
-    
+
+    @Column(name = "CAREER_ID", nullable = false)
+    private Integer career_id;
+
 }
