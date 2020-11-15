@@ -4,6 +4,8 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,7 +28,8 @@ public class Course implements Serializable {
     @Column(name = "NAME", length = 25, nullable = false)
     private String name;
 
-    @Column(name = "CAREER_ID", nullable = false)
-    private Integer career_id;
+    @ManyToOne
+    @JoinColumn(name = "CAREER_ID", nullable = false)
+    private Career career_id;
 
 }

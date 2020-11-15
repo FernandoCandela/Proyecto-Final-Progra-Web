@@ -1,4 +1,3 @@
-
 package edu.ulima.entidad;
 
 import java.io.Serializable;
@@ -17,18 +16,30 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity(name = "EUSER")
 @Table(name = "TUSER")
-public class UserStudent implements Serializable{
-    
+public class UserTeacher implements Serializable {
+
     @Id
     @Column(name = "ID", nullable = false)
     private Integer id;
-    
+
+    @Column(name = "USER", length = 45, nullable = false)
+    private String user;
+
+    @Column(name = "PASS", length = 45, nullable = false)
+    private String pass;
+
+    @Column(name = "RESET_KEY", length = 45, nullable = false)
+    private String reset_key;
+
+    @Column(name = "ACTIVATION_KEY", length = 45, nullable = false)
+    private String activation_key;
+
     @ManyToOne
     @JoinColumn(name = "USER_ID",nullable = false)
     private User user_id;
-    
+
     @ManyToOne
-    @JoinColumn(name = "STUDENT_ID",nullable = false)
-    private Student student_id;
-    
+    @JoinColumn(name = "TEACHER_ID",nullable = false)
+    private Teacher teacher_id;
+
 }

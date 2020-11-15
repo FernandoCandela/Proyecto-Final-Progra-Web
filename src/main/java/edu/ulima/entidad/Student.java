@@ -4,6 +4,8 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -38,13 +40,16 @@ public class Student implements Serializable {
     @Column(name = "PHOTO_URL", length = 100, nullable = false)
     private String photo_url;
 
-    @Column(name = "GENDER_ID", nullable = false)
-    private Integer gender_id;
+    @ManyToOne
+    @JoinColumn(name = "GENDER_ID",nullable = false)
+    private Gender gender_id;
 
+    //No estoy seguro de esto
     @Column(name = "CAREER_ID", nullable = false)
     private Integer career_id;
-
-    @Column(name = "COUNTRY_ID", nullable = false)
-    private Integer country_id;
+    
+    @ManyToOne
+    @JoinColumn(name = "COUNTRY_ID",nullable = false)
+    private Country country_id;
 
 }

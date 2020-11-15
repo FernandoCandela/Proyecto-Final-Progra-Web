@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class User implements Serializable {
 
     @Id
-    @Column(name = "USER", nullable = false)
+    @Column(name = "ID", nullable = false)
     private Integer id;
 
 }

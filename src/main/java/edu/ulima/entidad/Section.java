@@ -4,6 +4,8 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,10 +25,12 @@ public class Section implements Serializable {
     @Column(name = "CODE", nullable = false)
     private Integer code;
 
-    @Column(name = "COURSE_ID", nullable = false)
-    private Integer course_id;
+    @ManyToOne
+    @JoinColumn(name = "COURSE_ID",nullable = false)
+    private Course course_id;
 
-    @Column(name = "PERIOD_ID", nullable = false)
-    private Integer period_id;
+    @ManyToOne
+    @JoinColumn(name = "PERIOD_ID",nullable = false)
+    private Period period_id;
 
 }
