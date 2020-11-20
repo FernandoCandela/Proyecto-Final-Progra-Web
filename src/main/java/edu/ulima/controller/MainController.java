@@ -8,6 +8,7 @@ public class MainController {
 
     @RequestMapping(value = "/")
     public String home() {
+        //holi
         return "loginAlumno";
     }
 

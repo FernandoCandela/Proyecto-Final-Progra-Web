@@ -15,8 +15,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "EUSER")
-@Table(name = "TUSER")
+@Entity(name = "EUSERSTUDENT")
+@Table(name = "TUSERSTUDENT")
 public class UserStudent implements Serializable{
     
     @Id
