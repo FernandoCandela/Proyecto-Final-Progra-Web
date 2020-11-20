@@ -14,3 +14,12 @@ textarea {
   margin-top: -20px;
   margin-right: 5px;
 }
+
+#ayuda{
+    cursor: pointer;  
+}
+
+.imag div{
+    text-align: center;
+    align-items: center;
+}

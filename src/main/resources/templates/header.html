@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="../static/css/style.css">
   <title>Home</title>
 
 </head>
@@ -21,7 +21,7 @@
           <a class="nav-link text-light" href="#">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="#">Ayuda</a>
+          <a id="ayuda" class="nav-link text-light" data-toggle="modal" data-target=".bd-example-modal-lg">Ayuda</a>
         </li>
 
       </ul>
@@ -53,7 +53,46 @@
     <br>
     <div class="jumbotron jumbotron-fluid">
 
+    </div>
+  </div>
 
+  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><b>Integrantes del grupo</b></h5>
+        </div>
+        <div class="modal-body">
+          <div class="row imag">
+            <div class="col-6">
+              <figure>
+                <img src="https://www.htmlquick.com/images/charles-dickens.jpg" alt="Claudia Barrera">
+                <figcaption>Claudia Barrera</figcaption>
+              </figure>
+            </div>
+            <div class="col-6">
+              <figure>
+                <img src="https://www.htmlquick.com/images/charles-dickens.jpg" alt="Fernando Candela">
+                <figcaption>Fernando Candela</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="row imag">
+            <div class="col-6">
+              <figure>
+                <img src="https://www.htmlquick.com/images/charles-dickens.jpg" alt="Gerson Herrera">
+                <figcaption>Gerson Herrera</figcaption>
+              </figure>
+            </div>
+            <div class="col-6">
+              <figure>
+                <img src="https://www.htmlquick.com/images/charles-dickens.jpg" alt="Camila Mantilla">
+                <figcaption>Camila Mantilla</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
