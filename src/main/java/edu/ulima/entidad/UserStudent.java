@@ -31,4 +31,16 @@ public class UserStudent implements Serializable{
     @JoinColumn(name = "STUDENT_ID",nullable = false)
     private Student student_id;
     
+    @Column(name="USER", length=45, nullable = false)
+    private String user;
+    
+    @Column(name="PASS", length=45, nullable=false)
+    private String pass;
+    
+    @Column(name="RESET_KEY", length=45, nullable=false)
+    private String reset_key;
+    
+    @Column(name="ACTIVATION_KEY", length=45, nullable=false)
+    private String activation_key;
+    
 }

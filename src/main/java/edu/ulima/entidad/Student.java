@@ -36,6 +36,15 @@ public class Student implements Serializable {
 
     @Column(name = "PERSONAL_EMAIL", length = 50, nullable = false)
     private String personal_email;
+    
+    @Column(name = "TW_USER", length = 25, nullable = true)
+    private String tw_user;
+    
+    @Column(name = "TW_PASS", length = 25, nullable = true)
+    private String tw_pass;
+    
+    @Column(name = "AD_USER", length = 25, nullable = true)
+    private String ad_user;
 
     @Column(name = "PHOTO_URL", length = 100, nullable = false)
     private String photo_url;
