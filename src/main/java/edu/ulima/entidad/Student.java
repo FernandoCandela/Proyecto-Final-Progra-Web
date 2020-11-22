@@ -54,9 +54,8 @@ public class Student implements Serializable {
     private Gender gender_id;
 
     //No estoy seguro de esto
-    @ManyToOne
-    @JoinColumn(name = "CAREER_ID",nullable = false)
-    private Career career_id;
+    @Column(name = "CAREER_ID", nullable = false)
+    private Integer career_id;
     
     @ManyToOne
     @JoinColumn(name = "COUNTRY_ID",nullable = false)
