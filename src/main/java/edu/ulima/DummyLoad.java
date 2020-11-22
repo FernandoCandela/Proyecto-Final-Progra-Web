@@ -1,5 +1,6 @@
 package edu.ulima;
 
+import edu.ulima.entidad.Country;
 import edu.ulima.entidad.Gender;
 import edu.ulima.entidad.Career;
 import edu.ulima.entidad.Course;
@@ -7,6 +8,7 @@ import edu.ulima.entidad.TeacherType;
 import edu.ulima.entidad.Period;
 import edu.ulima.entidad.Section;
 import edu.ulima.persistencia.CareerRepositorio;
+import edu.ulima.persistencia.CountriesRepositorio;
 import edu.ulima.persistencia.CourseRepositorio;
 import edu.ulima.persistencia.GenderRepositorio;
 import edu.ulima.persistencia.PeriodRepositorio;
@@ -41,6 +43,9 @@ public class DummyLoad implements CommandLineRunner {
     @Autowired
     private SectionRepositorio repoS;
     
+    @Autowired
+    private CountriesRepositorio repoCoun;
+    
     /*@Autowired
     private PasswordEncoder pwEncoder;*/
     
@@ -65,8 +70,11 @@ public class DummyLoad implements CommandLineRunner {
         Career c5 = repoCa.save(new Career(5, "INGENIERIA"));
         //COURSE
         Course cou1 = repoCou.save(new Course(1, 101, "MATEMATICAS", c1));
-        Course cou2 = repoCou.save(new Course(2, 102, "HISTORIA", c1));
-        Course cou3 = repoCou.save(new Course(3, 103, "PSICOLOGIA", c1));
+        Course cou2 = repoCou.save(new Course(2, 102, "HISTORIA", c2));
+        Course cou3 = repoCou.save(new Course(3, 103, "PSICOLOGIA", c3));
+        //COUNTRIES
+        Country coun1 = repoCoun.save(new Country(1, "Peru"));
+        Country coun2 = repoCoun.save(new Country(2, "Argentina"));
         //TEACHERTYPE
         TeacherType te1 = repoTeType.save(new TeacherType(1, "PROFESOR"));
         TeacherType te2 = repoTeType.save(new TeacherType(2, "JEFE DE PRACTICAS"));
