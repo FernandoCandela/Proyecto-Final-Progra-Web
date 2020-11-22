@@ -23,7 +23,4 @@ public class Period implements Serializable {
     @Column(name = "NAME", length = 7, nullable = false)
     private String name;
 
-    @Column(name = "YEAR", nullable = false)
-    private Integer year;
-
 }
