@@ -37,19 +37,19 @@ public class Teacher implements Serializable {
     @Column(name = "PERSONAL_EMAIL", length = 50, nullable = false)
     private String personal_email;
 
-    @Column(name = "PHOTO_URL", length = 100, nullable = false)
-    private String photo_url;
-
     @ManyToOne
-    @JoinColumn(name = "GENDER_ID",nullable = false)
+    @JoinColumn(name = "GENDER_ID", nullable = false)
     private Gender gender_id;
 
     @ManyToOne
-    @JoinColumn(name = "COUNTRY_ID",nullable = false)
+    @JoinColumn(name = "COUNTRY_ID", nullable = false)
     private Country country_id;
 
     @ManyToOne
-    @JoinColumn(name = "TEACHER_TYPE_ID",nullable = false)
-    private Teacher teacher_type_id;
+    @JoinColumn(name = "TEACHER_TYPE_ID", nullable = false)
+    private TeacherType teacher_type_id;
+
+    @Column(name = "PHOTO_URL", length = 100, nullable = false)
+    private String photo_url;
 
 }

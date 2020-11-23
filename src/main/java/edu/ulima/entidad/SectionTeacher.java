@@ -23,11 +23,11 @@ public class SectionTeacher implements Serializable {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "TEACHER_ID",nullable = false)
-    private Teacher teacher_id;
+    @JoinColumn(name = "SECTION_ID", nullable = false)
+    private Section section_id;
 
     @ManyToOne
-    @JoinColumn(name = "SECTION_ID",nullable = false)
-    private Section section_id;
+    @JoinColumn(name = "TEACHER_ID", nullable = false)
+    private Teacher teacher_id;
 
 }
