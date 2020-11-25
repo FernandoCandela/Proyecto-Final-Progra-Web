@@ -9,6 +9,11 @@ import edu.ulima.entidad.Period;
 import edu.ulima.entidad.Section;
 import edu.ulima.entidad.Student;
 import edu.ulima.entidad.Teacher;
+import edu.ulima.entidad.User;
+import edu.ulima.entidad.UserStudent;
+import edu.ulima.entidad.UserTeacher;
+
+
 import edu.ulima.entidad.SectionStudent;
 import edu.ulima.entidad.SectionTeacher;
 import edu.ulima.persistencia.CareerRepositorio;
@@ -22,11 +27,14 @@ import edu.ulima.persistencia.TeacherRepositorio;
 import edu.ulima.persistencia.TeacherTypeRepositorio;
 import edu.ulima.persistencia.SectionStudentRepositorio;
 import edu.ulima.persistencia.SectionTeacherRepositorio;
+import edu.ulima.persistencia.UserRepositorio;
+import edu.ulima.persistencia.UserStudentRepositorio;
+import edu.ulima.persistencia.UserTeacherRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-/*import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;*/
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -65,6 +73,17 @@ public class DummyLoad implements CommandLineRunner {
 
     @Autowired
     private SectionTeacherRepositorio repoSecTea;
+    
+    @Autowired     
+    private UserRepositorio repoUser;     
+    
+    @Autowired     
+    private UserStudentRepositorio repoUsStd;    
+    
+    @Autowired     
+    private UserTeacherRepositorio repoUsTea;      
+
+    
 
     /*@Autowired
     private PasswordEncoder pwEncoder;*/
@@ -78,6 +97,24 @@ public class DummyLoad implements CommandLineRunner {
         /*
         repoU.save(new UserStudent(1, first, firstS.getId(), "20171871", pwEncoder.encode("password"), "1234", "1234"));
          */
+        
+        //USER 
+        User us1= repoUser.save( new User(1));
+        User us2= repoUser.save( new User(2));
+        User us3= repoUser.save( new User(3));
+        User us4= repoUser.save( new User(4));
+        User us5= repoUser.save( new User(5));
+        User us6= repoUser.save( new User(6));
+        User us7= repoUser.save( new User(7));
+        User us8= repoUser.save( new User(8));
+        User us9= repoUser.save( new User(9));
+        User us10= repoUser.save( new User(10));
+        
+        
+
+
+
+
         //GENDER
         Gender g1 = repoG.save(new Gender(1, "FEMENINO"));
         Gender g2 = repoG.save(new Gender(2, "MASCULINO"));
@@ -109,7 +146,7 @@ public class DummyLoad implements CommandLineRunner {
         Section s8 = repoS.save(new Section(8, 10108, cou1, p2));
         Section s9 = repoS.save(new Section(9, 10109, cou1, p2));
         Section s10 = repoS.save(new Section(10, 10110, cou1, p2));
-        Section s11 = repoS.save(new Section(11, 10111, cou1, p2));
+        /*Section s11 = repoS.save(new Section(11, 10111, cou1, p2));
         Section s12 = repoS.save(new Section(12, 10112, cou1, p2));
         Section s13 = repoS.save(new Section(13, 10113, cou1, p2));
         Section s14 = repoS.save(new Section(14, 10114, cou1, p2));
@@ -173,7 +210,7 @@ public class DummyLoad implements CommandLineRunner {
         Section s72 = repoS.save(new Section(72, 10322, cou3, p2));
         Section s73 = repoS.save(new Section(73, 10323, cou3, p2));
         Section s74 = repoS.save(new Section(74, 10324, cou3, p2));
-        Section s75 = repoS.save(new Section(75, 10325, cou3, p2));
+        Section s75 = repoS.save(new Section(75, 10325, cou3, p2));*/
 
         //COUNTRIES
         Country coun1 = repoCoun.save(new Country(1, "France"));
@@ -186,7 +223,7 @@ public class DummyLoad implements CommandLineRunner {
         Country coun8 = repoCoun.save(new Country(8, "United States"));
         Country coun9 = repoCoun.save(new Country(9, "Thailand"));
         Country coun10 = repoCoun.save(new Country(10, "Pakistan"));
-        Country coun11 = repoCoun.save(new Country(11, "Sweden"));
+        /*Country coun11 = repoCoun.save(new Country(11, "Sweden"));
         Country coun12 = repoCoun.save(new Country(12, "Palestinian Territory"));
         Country coun13 = repoCoun.save(new Country(13, "Portugal"));
         Country coun14 = repoCoun.save(new Country(14, "Vietnam"));
@@ -307,9 +344,9 @@ public class DummyLoad implements CommandLineRunner {
         Country coun129 = repoCoun.save(new Country(129, "Benin"));
         Country coun130 = repoCoun.save(new Country(130, "Ecuador"));
         Country coun131 = repoCoun.save(new Country(131, "Sri Lanka"));
-        Country coun132 = repoCoun.save(new Country(132, "Tajikistan"));
+        Country coun132 = repoCoun.save(new Country(132, "Tajikistan"));*/
 
-        /*
+        
         //STUDENT
         Student stud1 = repoStud.save(new Student(1, 2020001, "Cherlyn Jobye", "Aarons Daubeny", "2020001@universdiad.edu.com", "jdaubenygr@is.gd", "8 997 382 563", "3OV0QC", "730 325 950", g2, c4, coun1, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
         Student stud2 = repoStud.save(new Student(2, 2020002, "Gretel Myrlene", "Abadam Northill", "2020002@universdiad.edu.com", "mnorthill1c@cbc.ca", "8 244 659 204", "uMmEp5", "812 759 720", g2, c4, coun2, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
@@ -322,7 +359,7 @@ public class DummyLoad implements CommandLineRunner {
         Student stud9 = repoStud.save(new Student(9, 2020009, "Valma Brit", "Ailward Shervington", "2020009@universdiad.edu.com", "bshervingtonm8@altervista.org", "7 131 199 158", "bnp0xt", "324 712 859", g2, c5, coun7, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
         Student stud10 = repoStud.save(new Student(10, 2020010, "Jenni Iris", "Alabone Radborne", "2020010@universdiad.edu.com", "iradborneep@sitemeter.com", "2 188 472 726", "NL82Hh", "920 638 720", g2, c4, coun8, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
         Student stud11 = repoStud.save(new Student(11, 2020011, "Willy Guenna", "Alekseev Geri", "2020011@universdiad.edu.com", "ggerij7@sciencedirect.com", "5 719 249 140", "lPUId0", "955 383 240", g2, c3, coun9, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
-        Student stud12 = repoStud.save(new Student(12, 2020012, "Shelden Vern", "Alekseicik Sarl", "2020012@universdiad.edu.com", "vsarlqa@guardian.co.uk", "10 790 443 930", "8ihdTn", "825 854 371", g1, c1, coun4, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
+        /*Student stud12 = repoStud.save(new Student(12, 2020012, "Shelden Vern", "Alekseicik Sarl", "2020012@universdiad.edu.com", "vsarlqa@guardian.co.uk", "10 790 443 930", "8ihdTn", "825 854 371", g1, c1, coun4, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
         Student stud13 = repoStud.save(new Student(13, 2020013, "Barrie Fabien", "Algeo Stanborough", "2020013@universdiad.edu.com", "fstanboroughlw@wordpress.org", "8 831 315 616", "IBmQAB", "294 998 188", g1, c1, coun10, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
         Student stud14 = repoStud.save(new Student(14, 2020014, "Lian Glyn", "Allabarton Postan", "2020014@universdiad.edu.com", "gpostanr8@drupal.org", "2 933 333 300", "TaBKJJ", "202 200 996", g2, c4, coun3, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
         Student stud15 = repoStud.save(new Student(15, 2020015, "Yale Hebert", "Allabush Zammitt", "2020015@universdiad.edu.com", "hzammitt39@com.com", "3 877 997 762", "DT5Q26", "417 584 404", g1, c2, coun11, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
@@ -1311,7 +1348,7 @@ public class DummyLoad implements CommandLineRunner {
         Student stud998 = repoStud.save(new Student(998, 2020998, "Putnem Erwin", "Zarfat Toderbrugge", "2020998@universdiad.edu.com", "etoderbruggecv@symantec.com", "7 653 818 992", "7OIEH7", "439 911 148", g1, c5, coun13, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
         Student stud999 = repoStud.save(new Student(999, 2020999, "Bent Birch", "Zolini Clohisey", "2020999@universdiad.edu.com", "bclohiseydm@vkontakte.ru", "2 456 202 680", "SO7dT6", "151 409 715", g1, c1, coun16, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
         Student stud1000 = repoStud.save(new Student(1000, 2021000, "Omar Murdoch", "Zottoli Heynel", "2021000@universdiad.edu.com", "mheynelnx@g.co", "6 531 938 134", "04dwb4", "800 986 147", g1, c1, coun23, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
-
+        */
         //TEACHERS
         Teacher teach1 = repoTeach.save(new Teacher(1, 45001, "Cherlyn Jobye", "Aarons Daubeny", "caarons@universidad.edu.com", "jdaubenygr@is.gd", g2, coun1, te1, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
         Teacher teach2 = repoTeach.save(new Teacher(2, 45002, "Gretel Myrlene", "Abadam Northill", "gabadam@universidad.edu.com", "mnorthill1c@cbc.ca", g2, coun2, te1, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
@@ -1323,7 +1360,7 @@ public class DummyLoad implements CommandLineRunner {
         Teacher teach8 = repoTeach.save(new Teacher(8, 45008, "Jameson Bernardo", "Ahrendsen Hanniger", "jahrend@universidad.edu.com", "bhannigerb0@blogspot.com", g1, coun6, te2, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
         Teacher teach9 = repoTeach.save(new Teacher(9, 45009, "Valma Brit", "Ailward Shervington", "vailwar@universidad.edu.com", "bshervingtonm8@altervista.org", g2, coun7, te2, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
         Teacher teach10 = repoTeach.save(new Teacher(10, 45010, "Jenni Iris", "Alabone Radborne", "jalabon@universidad.edu.com", "iradborneep@sitemeter.com", g2, coun8, te1, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
-        Teacher teach11 = repoTeach.save(new Teacher(11, 45011, "Willy Guenna", "Alekseev Geri", "walekse@universidad.edu.com", "ggerij7@sciencedirect.com", g2, coun9, te1, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
+        /*Teacher teach11 = repoTeach.save(new Teacher(11, 45011, "Willy Guenna", "Alekseev Geri", "walekse@universidad.edu.com", "ggerij7@sciencedirect.com", g2, coun9, te1, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
         Teacher teach12 = repoTeach.save(new Teacher(12, 45012, "Shelden Vern", "Alekseicik Sarl", "salekse@universidad.edu.com", "vsarlqa@guardian.co.uk", g1, coun4, te2, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
         Teacher teach13 = repoTeach.save(new Teacher(13, 45013, "Barrie Fabien", "Algeo Stanborough", "balgeo@universidad.edu.com", "fstanboroughlw@wordpress.org", g1, coun10, te2, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
         Teacher teach14 = repoTeach.save(new Teacher(14, 45014, "Lian Glyn", "Allabarton Postan", "lallaba@universidad.edu.com", "gpostanr8@drupal.org", g2, coun3, te1, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
@@ -1361,7 +1398,7 @@ public class DummyLoad implements CommandLineRunner {
         Teacher teach46 = repoTeach.save(new Teacher(46, 45046, "Chevy Myles", "Aylward Sotworth", "caylwar@universidad.edu.com", "msotwortho8@foxnews.com", g1, coun10, te2, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
         Teacher teach47 = repoTeach.save(new Teacher(47, 45047, "Ginger Vincenz", "Aymer Ofen", "gaymer@universidad.edu.com", "vofenfv@altervista.org", g1, coun20, te2, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
         Teacher teach48 = repoTeach.save(new Teacher(48, 45048, "Arabelle Fayre", "Azema Filochov", "aazema@universidad.edu.com", "ffilochov45@imgur.com", g2, coun6, te1, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
-        
+        */
         //SECTION_STUDENTS
         repoSecStd.save(new SectionStudent(1, s1, stud1));
         repoSecStd.save(new SectionStudent(2, s1, stud2));
@@ -1374,7 +1411,7 @@ public class DummyLoad implements CommandLineRunner {
         repoSecStd.save(new SectionStudent(9, s1, stud9));
         repoSecStd.save(new SectionStudent(10, s1, stud10));
         repoSecStd.save(new SectionStudent(11, s1, stud11));
-        repoSecStd.save(new SectionStudent(12, s1, stud12));
+        /*repoSecStd.save(new SectionStudent(12, s1, stud12));
         repoSecStd.save(new SectionStudent(13, s1, stud13));
         repoSecStd.save(new SectionStudent(14, s1, stud14));
         repoSecStd.save(new SectionStudent(15, s1, stud15));
@@ -4363,25 +4400,25 @@ public class DummyLoad implements CommandLineRunner {
         repoSecStd.save(new SectionStudent(2998, s75, stud998));
         repoSecStd.save(new SectionStudent(2999, s75, stud999));
         repoSecStd.save(new SectionStudent(3000, s75, stud1000));
-
+        */
         //SECTIONTEACHER
-        repoSecTea.save(new SectionTeacher(1, s1, teach48));
+        /*repoSecTea.save(new SectionTeacher(1, s1, teach48));
         repoSecTea.save(new SectionTeacher(2, s1, teach25));
         repoSecTea.save(new SectionTeacher(3, s2, teach30));
         repoSecTea.save(new SectionTeacher(4, s2, teach16));
         repoSecTea.save(new SectionTeacher(5, s3, teach22));
-        repoSecTea.save(new SectionTeacher(6, s3, teach28));
+        repoSecTea.save(new SectionTeacher(6, s3, teach28));*/
         repoSecTea.save(new SectionTeacher(7, s4, teach1));
-        repoSecTea.save(new SectionTeacher(8, s4, teach20));
+        /*repoSecTea.save(new SectionTeacher(8, s4, teach20));
         repoSecTea.save(new SectionTeacher(9, s5, teach37));
         repoSecTea.save(new SectionTeacher(10, s5, teach28));
         repoSecTea.save(new SectionTeacher(11, s6, teach11));
         repoSecTea.save(new SectionTeacher(12, s6, teach39));
         repoSecTea.save(new SectionTeacher(13, s7, teach33));
-        repoSecTea.save(new SectionTeacher(14, s7, teach15));
+        repoSecTea.save(new SectionTeacher(14, s7, teach15));*/
         repoSecTea.save(new SectionTeacher(15, s8, teach6));
         repoSecTea.save(new SectionTeacher(16, s8, teach7));
-        repoSecTea.save(new SectionTeacher(17, s9, teach29));
+        /*repoSecTea.save(new SectionTeacher(17, s9, teach29));
         repoSecTea.save(new SectionTeacher(18, s9, teach39));
         repoSecTea.save(new SectionTeacher(19, s10, teach31));
         repoSecTea.save(new SectionTeacher(20, s10, teach39));
@@ -4465,8 +4502,19 @@ public class DummyLoad implements CommandLineRunner {
         repoSecTea.save(new SectionTeacher(98, s73, teach30));
         repoSecTea.save(new SectionTeacher(99, s74, teach41));
         repoSecTea.save(new SectionTeacher(100, s75, teach30));
+        
+ 
 */
-    }
+        
+        
+        
+        //USER STUDENT
+        UserStudent ustd1= repoUsStd.save( new UserStudent(1, us1, stud1, "2020001", "EIPPUL", "FYxuKLShMAYsypETmgoQ", "y7Mc5gjPkXvJpbBBJusd"));
+        
+        //USER TEACHER
+        UserTeacher ustea1= repoUsTea.save(new UserTeacher(1, "45001", "ov0291", "fAL19qszEBxUXPGIJ4S6", "aXmLP492oJdXxoYoSB2M", us2, teach1));
+    
+        }
 
 
     /*@Bean

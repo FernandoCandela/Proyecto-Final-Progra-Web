@@ -18,6 +18,6 @@ public class User implements Serializable {
 
     @Id
     @Column(name = "ID", nullable = false)
-    private Integer id;
+    private Integer ide;
 
 }
