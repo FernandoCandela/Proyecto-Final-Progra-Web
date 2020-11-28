@@ -8,35 +8,29 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import edu.ulima.entidad.*;
-import edu.ulima.persistencia.StudentRepositorio;
+import edu.ulima.persistencia.UserTeacherRepositorio;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
 @RequestMapping("/login")
-public class UserStudentLogCont {
-    private UserStudentRepositorio uRep;
+public class UserTeacherLogCont {
+    private UserTeacherRepositorio teacherRep;
     @Autowired
-    public void userController(UserStudentRepositorio uRep){
-        this.uRep = uRep;
+    public void userController(UserTeacherRepositorio teacherRep){
+        this.teacherRep = teacherRep;
     }
     
-    private StudentRepositorio sRep;
-    @Autowired
-    public void studentController(StudentRepositorio sRep){
-        this.sRep = sRep;
-    } 
-    
-    @RequestMapping(value = "/student",method = RequestMethod.GET)
+    @RequestMapping(value = "/teacher",method = RequestMethod.GET)
     public String home(Model model) {
         //model.addAttribute("StudentFormulario", new StudentFormulario());
         //holi
-        return "loginAlumno";
+        return "loginProfe";
     }
     
     
-    @RequestMapping(value = "/student",method = RequestMethod.POST)
+    @RequestMapping(value = "/teacher",method = RequestMethod.POST)
     public String ingresar(
             HttpServletRequest req,
             @RequestParam("user") String user,
@@ -47,21 +41,17 @@ public class UserStudentLogCont {
         System.out.println(password);
         System.out.println("2++++++++++++++++++++++++++++++++++++");
         
-        UserStudent userStdRep = uRep.findByUserAndPass(user, password);
-        //Student studentR = sRep.findByIde(userStdRep.getId());
-        System.out.println(userStdRep);
-        //System.out.println(studentR);
+        UserTeacher userTeaRep = teacherRep.findByUserAndPass(user, password);
+        System.out.println(userTeaRep);
         System.out.println("3++++++++++++++++++++++++++++++++");
-        if(userStdRep!=null){
+        if(userTeaRep!=null){
             System.out.print("*se logea*");
             req.getSession().setAttribute("user", user);
             req.getSession().setAttribute("password", password);
-            
-            req.getSession().setAttribute("password", password);
-            return "redirect:/inicioAlum";
+            return "redirect:/inicioProfe";
         }else{
             System.out.print("*Usuario o contraseña incorrecta*");
-            return "loginAlumno";
+            return "loginProfe";
         }
         
     }

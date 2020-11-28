@@ -27,12 +27,12 @@
                 <form class="form-signin" method="POST"
                       th:action="@{/login/student}" th:object="${StudentFormulario}">
                     <span id="reauth-email" class="reauth-email"></span>
-                    <input type="text" th:field="*{user}" name="userName" id="inputEmail" class="form-control" placeholder="Usuario" required autofocus>
-                    <input type="password" th:field="*{password}" name="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+                    <input type="text"  name="user" id="inputEmail" class="form-control" placeholder="Usuario" required autofocus>
+                    <input type="password"  name="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
                     <div id="remember" class="tipoUsuario text-center">
                         <label>
                             <!--<input type="checkbox" value="remember-me"> Remember me -->
-                            <a class="tipAdmin" th:href="@{/loginTeacher}">Soy Profesor</a> 
+                            <a class="tipAdmin" th:href="@{/login/teacher}">Soy Profesor</a> 
                             <a class="tipProfe" th:href="@{/loginAdmin}">Soy Admin</a>
                         </label>
                     </div>

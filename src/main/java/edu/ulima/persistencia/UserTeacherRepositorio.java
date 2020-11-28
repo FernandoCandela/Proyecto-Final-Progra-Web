@@ -4,5 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserTeacherRepositorio extends JpaRepository<UserTeacher,Integer> {
     public UserTeacher findByUser(String user);
+    public UserTeacher findByUserAndPass(String user, String pass);
 
 }
