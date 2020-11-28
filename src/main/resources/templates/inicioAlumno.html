@@ -9,18 +9,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="../static/css/estilosAlumno.css">
+    <link rel="stylesheet" href="/css/estilosAlumno.css">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Inicio</title>
 </head>
 
 <body>
     <th:block th:include="headerAlumno"></th:block>
-    <div class="container py-3">
+    <div class="container fatherCard">
         <div class="card">
             <div class="card-body">
                 <div class="row">
                     <div class="col-12">
-                        <h5>Datos del Alumno</h5><br>
+                        <h5>Datos del Alumno</h5>
                     </div>
                 </div>
                 <div class="row">
@@ -28,20 +29,20 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-3">
                                 <div class="form-group">
-                                    <label for="">Código</label> <br>
-                                    <input class="form-control" type="text" disabled><br>
+                                    <label for="">Código</label>
+                                    <input class="form-control" type="text" disabled>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-6 col-lg-4">
                                 <div class="form-group">
-                                    <label for="">Nombres</label> <br>
-                                    <input class="form-control" type="text" disabled><br>
+                                    <label for="">Nombres</label>
+                                    <input class="form-control" type="text" disabled>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-6 col-lg-5">
                                 <div class="form-group">
-                                    <label for="">Apellidos</label> <br>
-                                    <input class="form-control" type="text" disabled><br>
+                                    <label for="">Apellidos</label>
+                                    <input class="form-control" type="text" disabled>
                                 </div>
                             </div>
                         </div>
@@ -49,66 +50,66 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="">Correo de la Universidad</label> <br>
+                                    <label for="">Correo de la Universidad</label>
                                     <select class="browser-default custom-select" disabled>
                                         <option value="1" selected>20000000@aloe.ulima.edu.pe</option>
-                                    </select><br>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="">Correo Personal</label> <br>
-                                    <input class="form-control" type="text"><br>
+                                    <label for="">Correo Personal</label>
+                                    <input class="form-control" type="text">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-4">
                                 <div class="form-group">
-                                    <label for="">Género</label> <br>
+                                    <label for="">Género</label>
                                     <select class="browser-default custom-select" disabled>
                                         <option selected disabled>Seleccione el género</option>
                                         <option value="1">Femenino</option>
                                         <option value="2">Masculino</option>
-                                    </select><br>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-4">
                                 <div class="form-group">
-                                    <label for="">País</label> <br>
+                                    <label for="">País</label>
                                     <select class="browser-default custom-select" disabled>
                                         <option selected disabled>Seleccione el país</option>
                                         <option value="1">País 1</option>
-                                    </select><br>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-4">
                                 <div class="form-group">
-                                    <label for="">Carrera</label> <br>
+                                    <label for="">Carrera</label>
                                     <select class="browser-default custom-select" disabled>
                                         <option selected disabled>Seleccione la carrera</option>
                                         <option value="1">Tipo1</option>
-                                    </select><br>
+                                    </select>
                                 </div>
                             </div>
-                        </div><br>
+                        </div>
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg-4">
                                 <div class="form-group">
-                                    <label for="">Usuario de TeamViewer</label> <br>
-                                    <input class="form-control" type="text"><br>
+                                    <label for="">Usuario de TeamViewer</label>
+                                    <input class="form-control" type="text">
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-4">
                                 <div class="form-group">
-                                    <label for="">Contraseña de TeamViewer</label> <br>
-                                    <input class="form-control" type="text"><br>
+                                    <label for="">Contraseña de TeamViewer</label>
+                                    <input class="form-control" type="text">
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12 col-lg-4">
                                 <div class="form-group">
-                                    <label for="">Credenciales de AnyDesk</label> <br>
-                                    <input class="form-control" type="text"><br>
+                                    <label for="">Credenciales de AnyDesk</label>
+                                    <input class="form-control" type="text">
                                 </div>
                             </div>
                         </div>
@@ -129,4 +130,6 @@
             </div>
         </div>
     </div>
+    <th:block th:include="footer"></th:block>
+    <th:block th:include="bootstrapScripts"></th:block>
 </body>

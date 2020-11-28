@@ -7,11 +7,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7dbf90a20f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/estilosAdminGestProfe.css">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Cargar Alumnos</title>
+    <script type="text/javascript">
+            const BASE_URL = "http://localhost:8080";
+    </script>
 </head>
 
-<body>
-    <div class="container">
+<body onload="listarAlumnos();">
+    <th:block th:include="headerAlumno"></th:block>
+    <div class="container py-3">
         <div class="card">
             <div class="card-body">
                 <div class="row">
@@ -46,7 +51,8 @@
                     </div>
                 </div><br>
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col-8" id="tablaGestion">
+                        <!--
                         <table class="table table-striped media-body">
                             <thead>
                               <tr>
@@ -66,7 +72,7 @@
                                 <td>
                                   <a class="text-dark" href="#"><i class="fas fa-pencil-alt"></i></a>
                                   <!--<button type="submit"><i class="fas fa-pencil-alt"></i></button> -->
-                                </td>
+                                <!--</td>
                                 <td>
                                   <button type="submit"><i class="fas fa-times"></i></button>
                                 </td>
@@ -84,7 +90,7 @@
                                 </td>
                               </tr>
                             </tbody>
-                        </table>
+                        </table>-->
                     </div>
                 </div>
                 <div class="row">
@@ -98,4 +104,7 @@
         
 
     </div>
+    <th:block th:include="footer"></th:block>
+    <th:block th:include="bootstrapScripts"></th:block>
+    <script src="/js/generarTabla.js"></script>
 </body>
