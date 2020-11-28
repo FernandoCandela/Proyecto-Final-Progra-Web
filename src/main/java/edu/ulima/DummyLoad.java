@@ -12,8 +12,6 @@ import edu.ulima.entidad.Teacher;
 import edu.ulima.entidad.User;
 import edu.ulima.entidad.UserStudent;
 import edu.ulima.entidad.UserTeacher;
-
-
 import edu.ulima.entidad.SectionStudent;
 import edu.ulima.entidad.SectionTeacher;
 import edu.ulima.persistencia.CareerRepositorio;
@@ -32,9 +30,6 @@ import edu.ulima.persistencia.UserStudentRepositorio;
 import edu.ulima.persistencia.UserTeacherRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -73,17 +68,15 @@ public class DummyLoad implements CommandLineRunner {
 
     @Autowired
     private SectionTeacherRepositorio repoSecTea;
-    
-    @Autowired     
-    private UserRepositorio repoUser;     
-    
-    @Autowired     
-    private UserStudentRepositorio repoUsStd;    
-    
-    @Autowired     
-    private UserTeacherRepositorio repoUsTea;      
 
-    
+    @Autowired
+    private UserRepositorio repoUser;
+
+    @Autowired
+    private UserStudentRepositorio repoUsStd;
+
+    @Autowired
+    private UserTeacherRepositorio repoUsTea;
 
     /*@Autowired
     private PasswordEncoder pwEncoder;*/
@@ -97,19 +90,19 @@ public class DummyLoad implements CommandLineRunner {
         /*
         repoU.save(new UserStudent(1, first, firstS.getId(), "20171871", pwEncoder.encode("password"), "1234", "1234"));
          */
-        
+
         //USER 
-        User us1= repoUser.save( new User(1));
-        User us2= repoUser.save( new User(2));
-        User us3= repoUser.save( new User(3));
-        User us4= repoUser.save( new User(4));
-        User us5= repoUser.save( new User(5));
-        User us6= repoUser.save( new User(6));
-        User us7= repoUser.save( new User(7));
-        User us8= repoUser.save( new User(8));
-        User us9= repoUser.save( new User(9));
-        User us10= repoUser.save( new User(10));
-        
+        User us1 = repoUser.save(new User(1));
+        User us2 = repoUser.save(new User(2));
+        User us3 = repoUser.save(new User(3));
+        User us4 = repoUser.save(new User(4));
+        User us5 = repoUser.save(new User(5));
+        User us6 = repoUser.save(new User(6));
+        User us7 = repoUser.save(new User(7));
+        User us8 = repoUser.save(new User(8));
+        User us9 = repoUser.save(new User(9));
+        User us10 = repoUser.save(new User(10));
+
         //GENDER
         Gender g1 = repoG.save(new Gender(1, "FEMENINO"));
         Gender g2 = repoG.save(new Gender(2, "MASCULINO"));
@@ -341,7 +334,6 @@ public class DummyLoad implements CommandLineRunner {
         Country coun131 = repoCoun.save(new Country(131, "Sri Lanka"));
         Country coun132 = repoCoun.save(new Country(132, "Tajikistan"));*/
 
-        
         //STUDENT
         Student stud1 = repoStud.save(new Student(1, 2020001, "Cherlyn Jobye", "Aarons Daubeny", "2020001@universdiad.edu.com", "jdaubenygr@is.gd", "8 997 382 563", "3OV0QC", "730 325 950", g2, c4, coun1, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
         Student stud2 = repoStud.save(new Student(2, 2020002, "Gretel Myrlene", "Abadam Northill", "2020002@universdiad.edu.com", "mnorthill1c@cbc.ca", "8 244 659 204", "uMmEp5", "812 759 720", g2, c4, coun2, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
@@ -1343,7 +1335,7 @@ public class DummyLoad implements CommandLineRunner {
         Student stud998 = repoStud.save(new Student(998, 2020998, "Putnem Erwin", "Zarfat Toderbrugge", "2020998@universdiad.edu.com", "etoderbruggecv@symantec.com", "7 653 818 992", "7OIEH7", "439 911 148", g1, c5, coun13, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
         Student stud999 = repoStud.save(new Student(999, 2020999, "Bent Birch", "Zolini Clohisey", "2020999@universdiad.edu.com", "bclohiseydm@vkontakte.ru", "2 456 202 680", "SO7dT6", "151 409 715", g1, c1, coun16, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
         Student stud1000 = repoStud.save(new Student(1000, 2021000, "Omar Murdoch", "Zottoli Heynel", "2021000@universdiad.edu.com", "mheynelnx@g.co", "6 531 938 134", "04dwb4", "800 986 147", g1, c1, coun23, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
-        */
+         */
         //TEACHERS
         Teacher teach1 = repoTeach.save(new Teacher(1, 45001, "Cherlyn Jobye", "Aarons Daubeny", "caarons@universidad.edu.com", "jdaubenygr@is.gd", g2, coun1, te1, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
         Teacher teach2 = repoTeach.save(new Teacher(2, 45002, "Gretel Myrlene", "Abadam Northill", "gabadam@universidad.edu.com", "mnorthill1c@cbc.ca", g2, coun2, te1, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
@@ -1393,7 +1385,7 @@ public class DummyLoad implements CommandLineRunner {
         Teacher teach46 = repoTeach.save(new Teacher(46, 45046, "Chevy Myles", "Aylward Sotworth", "caylwar@universidad.edu.com", "msotwortho8@foxnews.com", g1, coun10, te2, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
         Teacher teach47 = repoTeach.save(new Teacher(47, 45047, "Ginger Vincenz", "Aymer Ofen", "gaymer@universidad.edu.com", "vofenfv@altervista.org", g1, coun20, te2, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
         Teacher teach48 = repoTeach.save(new Teacher(48, 45048, "Arabelle Fayre", "Azema Filochov", "aazema@universidad.edu.com", "ffilochov45@imgur.com", g2, coun6, te1, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
-        */
+         */
         //SECTION_STUDENTS
         repoSecStd.save(new SectionStudent(1, s1, stud1));
         repoSecStd.save(new SectionStudent(2, s1, stud2));
@@ -4395,7 +4387,7 @@ public class DummyLoad implements CommandLineRunner {
         repoSecStd.save(new SectionStudent(2998, s75, stud998));
         repoSecStd.save(new SectionStudent(2999, s75, stud999));
         repoSecStd.save(new SectionStudent(3000, s75, stud1000));
-        */
+         */
         //SECTIONTEACHER
         /*repoSecTea.save(new SectionTeacher(1, s1, teach48));
         repoSecTea.save(new SectionTeacher(2, s1, teach25));
@@ -4499,39 +4491,32 @@ public class DummyLoad implements CommandLineRunner {
         repoSecTea.save(new SectionTeacher(100, s75, teach30));
         
  
-*/
-        
-        
-        
+         */
+
         //USER STUDENT
-        UserStudent ustd1= repoUsStd.save( new UserStudent(1, us1, stud1, "2020001", "EIPPUL", "FYxuKLShMAYsypETmgoQ", "y7Mc5gjPkXvJpbBBJusd"));
-        UserStudent ustd2= repoUsStd.save( new UserStudent(2, us2, stud2, "2020002", "j2yEfM", "ghuLzkghcHcRhV6CFmpj", "vBSGYXFK4x2KvrwMGuWF"));
-        UserStudent ustd3= repoUsStd.save( new UserStudent(3, us3, stud3, "2020003", "MybyIK", "tI2E6Lm3GdpGgW5TpvI1", "faWCUDdxCIRwQuKMgMdt"));
-        UserStudent ustd4= repoUsStd.save( new UserStudent(4, us4, stud4,"2020004", "1cjZOM", "7ABIjLfJPBCN4GwF0SJ5", "3zGS5Hfp1GFFC0jREOS1"));
-        UserStudent ustd5= repoUsStd.save( new UserStudent(5, us5, stud5, "2020005", "MlBMc0", "nT79kkAFniwuqdG8gy2r", "rgWSwjblwewTp8iMZPVm"));
-        UserStudent ustd6= repoUsStd.save( new UserStudent(6, us6, stud6, "2020006", "ya4w1d", "KnnwZPuLQMVAUt5csdID", "XkfYhdg7F4dQNo9CIbHY"));
-        UserStudent ustd7= repoUsStd.save( new UserStudent(7, us7, stud7, "2020007", "ArRV2E", "oGOaKwGOZsNpYwFZGeAI", "JR59EFcZL98B1xoKRFfL"));
-        UserStudent ustd8= repoUsStd.save( new UserStudent(8, us8, stud8, "2020008", "UXXQxN", "tZAf2Sqr9Efb7VYDRZmp", "dLRvli94VNYcyiEBoweP"));
-        UserStudent ustd9= repoUsStd.save( new UserStudent(9, us9, stud9, "2020009", "Wf53GQ", "WxWMJ4Z5kzYemszl8FdE", "fYbuR9rikHzQx6kadu8Q"));
-        UserStudent ustd10= repoUsStd.save( new UserStudent(10, us10, stud10, "2020010", "lTEqmm", "Q3Zy4ZhOcFEdjhEfBv5T", "xrJT2R4IifVaudQ68ruu"));
-        
+        UserStudent ustd1 = repoUsStd.save(new UserStudent(1, us1, stud1, "2020001", "EIPPUL", "FYxuKLShMAYsypETmgoQ", "y7Mc5gjPkXvJpbBBJusd"));
+        UserStudent ustd2 = repoUsStd.save(new UserStudent(2, us2, stud2, "2020002", "j2yEfM", "ghuLzkghcHcRhV6CFmpj", "vBSGYXFK4x2KvrwMGuWF"));
+        UserStudent ustd3 = repoUsStd.save(new UserStudent(3, us3, stud3, "2020003", "MybyIK", "tI2E6Lm3GdpGgW5TpvI1", "faWCUDdxCIRwQuKMgMdt"));
+        UserStudent ustd4 = repoUsStd.save(new UserStudent(4, us4, stud4, "2020004", "1cjZOM", "7ABIjLfJPBCN4GwF0SJ5", "3zGS5Hfp1GFFC0jREOS1"));
+        UserStudent ustd5 = repoUsStd.save(new UserStudent(5, us5, stud5, "2020005", "MlBMc0", "nT79kkAFniwuqdG8gy2r", "rgWSwjblwewTp8iMZPVm"));
+        UserStudent ustd6 = repoUsStd.save(new UserStudent(6, us6, stud6, "2020006", "ya4w1d", "KnnwZPuLQMVAUt5csdID", "XkfYhdg7F4dQNo9CIbHY"));
+        UserStudent ustd7 = repoUsStd.save(new UserStudent(7, us7, stud7, "2020007", "ArRV2E", "oGOaKwGOZsNpYwFZGeAI", "JR59EFcZL98B1xoKRFfL"));
+        UserStudent ustd8 = repoUsStd.save(new UserStudent(8, us8, stud8, "2020008", "UXXQxN", "tZAf2Sqr9Efb7VYDRZmp", "dLRvli94VNYcyiEBoweP"));
+        UserStudent ustd9 = repoUsStd.save(new UserStudent(9, us9, stud9, "2020009", "Wf53GQ", "WxWMJ4Z5kzYemszl8FdE", "fYbuR9rikHzQx6kadu8Q"));
+        UserStudent ustd10 = repoUsStd.save(new UserStudent(10, us10, stud10, "2020010", "lTEqmm", "Q3Zy4ZhOcFEdjhEfBv5T", "xrJT2R4IifVaudQ68ruu"));
+
         //USER TEACHER
-        UserTeacher ustea1= repoUsTea.save(new UserTeacher(1, "45001", "ov0291", "fAL19qszEBxUXPGIJ4S6", "aXmLP492oJdXxoYoSB2M", us1, teach1));
-        UserTeacher ustea2= repoUsTea.save(new UserTeacher(2, "45002", "Zr9WNo", "56J0IHAJqAtbU8s1lrDO", "DCzpajgMuv3jwXB0CwoS", us2, teach2));
-        UserTeacher ustea3= repoUsTea.save(new UserTeacher(3, "45003", "Xl6xBA", "xBxCJqKUlNIk4J1uujFa", "Ngto50dXd6CCjA8A0475", us3, teach3));
-        UserTeacher ustea4= repoUsTea.save(new UserTeacher(4, "45004", "Fhv3aC", "VbAD7QqnGTEzOUAsCcDA", "br8dQw0OM5qf3xcbH2fL", us4, teach4));
-        UserTeacher ustea5= repoUsTea.save(new UserTeacher(5, "45005", "OopvGZ", "rL0UB9POxYcFkWKM2Icl", "lofx6yZBIPqBkoOzuwFT", us5, teach5));
-        UserTeacher ustea6= repoUsTea.save(new UserTeacher(6, "45006", "0djAgq", "8KVjd7S98AjJs0LhgKPp", "5xTVcsAnlugAAWm7iWwF", us6, teach6));
-        UserTeacher ustea7= repoUsTea.save(new UserTeacher(7, "45007", "ANeXmK", "QGsTgNknyNo4uRxm5Jis", "NggrAYfZLFHmBOrm4L31", us7, teach7));
-        UserTeacher ustea8= repoUsTea.save(new UserTeacher(8, "45008", "gY5USj", "KzV8mWufW85rlGmVkyDb", "LPOzVlr1uzrbwuCs3Gwc", us8, teach8));
-        UserTeacher ustea9= repoUsTea.save(new UserTeacher(9, "45009", "WrNL0e", "IyqkwbZDsYadVSUqBRe8", "lAWBNU2Ny0HvbiIcDeT1", us9, teach9));
-        UserTeacher ustea10= repoUsTea.save(new UserTeacher(10, "45010", "pRPHhU", "L9yWzOiVoKq2XjpLXFkB", "0iU3kYKsVG2AZxl8xjBn", us10, teach10));
-    
-        }
+        UserTeacher ustea1 = repoUsTea.save(new UserTeacher(1, "45001", "ov0291", "fAL19qszEBxUXPGIJ4S6", "aXmLP492oJdXxoYoSB2M", us1, teach1));
+        UserTeacher ustea2 = repoUsTea.save(new UserTeacher(2, "45002", "Zr9WNo", "56J0IHAJqAtbU8s1lrDO", "DCzpajgMuv3jwXB0CwoS", us2, teach2));
+        UserTeacher ustea3 = repoUsTea.save(new UserTeacher(3, "45003", "Xl6xBA", "xBxCJqKUlNIk4J1uujFa", "Ngto50dXd6CCjA8A0475", us3, teach3));
+        UserTeacher ustea4 = repoUsTea.save(new UserTeacher(4, "45004", "Fhv3aC", "VbAD7QqnGTEzOUAsCcDA", "br8dQw0OM5qf3xcbH2fL", us4, teach4));
+        UserTeacher ustea5 = repoUsTea.save(new UserTeacher(5, "45005", "OopvGZ", "rL0UB9POxYcFkWKM2Icl", "lofx6yZBIPqBkoOzuwFT", us5, teach5));
+        UserTeacher ustea6 = repoUsTea.save(new UserTeacher(6, "45006", "0djAgq", "8KVjd7S98AjJs0LhgKPp", "5xTVcsAnlugAAWm7iWwF", us6, teach6));
+        UserTeacher ustea7 = repoUsTea.save(new UserTeacher(7, "45007", "ANeXmK", "QGsTgNknyNo4uRxm5Jis", "NggrAYfZLFHmBOrm4L31", us7, teach7));
+        UserTeacher ustea8 = repoUsTea.save(new UserTeacher(8, "45008", "gY5USj", "KzV8mWufW85rlGmVkyDb", "LPOzVlr1uzrbwuCs3Gwc", us8, teach8));
+        UserTeacher ustea9 = repoUsTea.save(new UserTeacher(9, "45009", "WrNL0e", "IyqkwbZDsYadVSUqBRe8", "lAWBNU2Ny0HvbiIcDeT1", us9, teach9));
+        UserTeacher ustea10 = repoUsTea.save(new UserTeacher(10, "45010", "pRPHhU", "L9yWzOiVoKq2XjpLXFkB", "0iU3kYKsVG2AZxl8xjBn", us10, teach10));
 
+    }
 
-    /*@Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }*/
 }
