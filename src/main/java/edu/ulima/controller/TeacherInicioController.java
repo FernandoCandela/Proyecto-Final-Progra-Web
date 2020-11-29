@@ -12,6 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class TeacherInicioController {
     @RequestMapping(value = "",method = RequestMethod.GET)
     public String studentInicio(Model model) {
-        return "profesor";
+        return "inicioProfe";
     }
 }

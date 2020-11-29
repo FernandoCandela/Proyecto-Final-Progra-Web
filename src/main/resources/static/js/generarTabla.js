@@ -46,12 +46,31 @@ function generateTable(datos) {
 
         var genero = document.createElement('td');
         genero.textContent = item.garden_name;
+        
+        var editOption = document.createElement('td');
+        var editOptionA = document.createElement('a');
+        editOptionA.setAttribute('class', 'text-dark');
+        editOptionA.setAttribute('href', '#');   
+        var editOptionI = document.createElement('i');
+        editOptionI.setAttribute('class', 'fas fa-pencil-alt');
+         
+        var deleteOption = document.createElement('td');
+        var deleteOptionBtn = document.createElement('button');
+        deleteOptionBtn.setAttribute('type', 'submit'); 
+        var deleteOptionI = document.createElement('i');
+        deleteOptionI.setAttribute('class', 'fas fa-times');
 
         table.appendChild(thead);
         trT.appendChild(code);
         trT.appendChild(name);
         trT.appendChild(carrera);
         trT.appendChild(genero);
+        editOptionA.appendChild(editOptionI);
+        editOption.appendChild(editOptionA);
+        deleteOptionBtn.appendChild(deleteOptionI);
+        deleteOption.appendChild(deleteOptionBtn);
+        trT.appendChild(editOption);
+        trT.appendChild(deleteOption);
         tbody.appendChild(trT);
         table.appendChild(tbody);
         dvTable.appendChild(table);

@@ -7,11 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7dbf90a20f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/estilosAdminGestProfe.css">
-    <title>Ver Seccion</title>
+    <link rel="stylesheet" href="css/estilosAlumno.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Mis Secciones</title>
 </head>
 
 <body>
-    <div class="container">
+    <th:block th:include="headerProfe"></th:block>
+    <div class="container py-5">
         <div class="card">
             <div class="card-body">
                 <div class="row">
@@ -74,4 +77,6 @@
         
 
     </div>
+    <th:block th:include="footer"></th:block>
+    <th:block th:include="bootstrapScripts"></th:block>
 </body>
