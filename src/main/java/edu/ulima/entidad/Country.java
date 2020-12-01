@@ -24,4 +24,8 @@ public class Country implements Serializable{
     @Column(name = "NAME",length = 30 ,nullable = false)
     private String name;
     
+  public String getName() {
+        return name;
+  }
+    
 }

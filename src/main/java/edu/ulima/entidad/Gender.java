@@ -24,5 +24,7 @@ public class Gender implements Serializable {
     @Column(name = "NAME",length = 15 ,nullable = false)
     private String name;
     
-    
+    public String getName() {
+        return name;
+  }
 }

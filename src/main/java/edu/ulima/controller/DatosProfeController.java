@@ -16,21 +16,51 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class DatosProfeController {
     
     private TeacherRepositorio teacherRep;
+    private CountriesRepositorio countRepo;
     @Autowired
-    public void userController(TeacherRepositorio teacherRep){
+    public void userController(TeacherRepositorio teacherRep, CountriesRepositorio countRepo) {
         this.teacherRep = teacherRep;
+        this.countRepo = countRepo;
     }
     
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public String studentInicio(Model model, HttpServletRequest req) {
+    public String teacherInicio(Model model, HttpServletRequest req) {
+
         String user = String.valueOf(req.getSession().getAttribute("user"));
+
         model.addAttribute("user", user);
-        
         Teacher Profe = teacherRep.findByCode(Integer.parseInt(user));
         System.out.println(Profe);
+        
         System.out.println("******************");
         String nombre= Profe.getNames();
         model.addAttribute("nombre", nombre);
+        
+        String apellidos= Profe.getLast_names();
+        model.addAttribute("apellidos", apellidos);
+        
+        String correo= Profe.getEmail();
+        model.addAttribute("correo", correo);
+        String correoPersonal= Profe.getPersonal_email();
+        model.addAttribute("correoPersonal", correoPersonal);
+        
+        
+        Integer ide = Profe.getId();
+        model.addAttribute("ide", ide);
+        //System.out.println(ide);
+        
+        Country pais_nombre = Profe.getCountry_id();
+        model.addAttribute("pais_nombre",pais_nombre.getName());
+        System.out.println(pais_nombre);
+       
+        TeacherType tipo=Profe.getTeacher_type_id();
+        model.addAttribute("tipo",tipo.getName());
+        System.out.println(tipo);
+        
+        Gender genero = Profe.getGender_id();
+        model.addAttribute("genero",genero.getName());
+        System.out.println(genero);
+        
         return "profesor";
     }
     

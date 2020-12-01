@@ -40,7 +40,7 @@
                                 <div class="col-5">
                                     <div class="form-group">
                                         <label for="">Apellidos</label> <br>
-                                        <input class="form-control" type="text" disabled><br>
+                                        <label th:text=${apellidos} class="form-control" type="text" disabled></label>
                                     </div>
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                                     <div class="form-group">
                                         <label for="">Correo de la Universidad</label> <br>
                                         <select class="browser-default custom-select" disabled>
-                                            <option value="1" selected>20000000@aloe.ulima.edu.pe</option>
+                                           <option th:text=${correo} selected disabled></option>
                                         </select><br>
                                     </div>
                                 </div>
@@ -64,9 +64,8 @@
                                     <div class="form-group">
                                         <label for="">Género</label> <br>
                                         <select class="browser-default custom-select" disabled>
-                                            <option selected disabled>Seleccione el género</option>
-                                            <option value="1">Femenino</option>
-                                            <option value="2">Masculino</option>
+                                            <option th:text=${genero} selected disabled></option>
+                                   
                                         </select><br>
                                     </div>
                                 </div>
@@ -76,8 +75,8 @@
                                     <div class="form-group">
                                         <label for="">Pais</label> <br>
                                         <select class="browser-default custom-select" disabled>
-                                            <option selected disabled>Seleccione el país</option>
-                                            <option value="1">País 1</option>
+                                          <option th:text=${pais_nombre} selected disabled></option>
+                                          
                                         </select><br>
                                     </div>
                                 </div>
@@ -85,9 +84,8 @@
                                     <div class="form-group">
                                         <label for="">Tipo de Docente</label> <br>
                                         <select class="browser-default custom-select" disabled>
-                                            <option selected disabled>Seleccione el género</option>
-                                            <option value="1">Profesor</option>
-                                            <option value="2">Jefe de Practicas</option>
+                                             <option th:text=${tipo} selected disabled></option>
+                                            
                                         </select><br>
                                     </div>
                                 </div>

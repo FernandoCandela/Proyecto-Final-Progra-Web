@@ -22,5 +22,10 @@ public class TeacherType implements Serializable {
 
     @Column(name = "NAME", length = 20, nullable = false)
     private String name;
+    
+    
+    public String getName() {
+        return name;
+  }
 
 }
