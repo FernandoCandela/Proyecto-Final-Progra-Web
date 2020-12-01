@@ -6,111 +6,110 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        <link rel="stylesheet" href="/css/estilosAlumno.css">
-        <link rel="stylesheet" href="/css/style.css">
-        <title>Datos del Profesor</title>
+        <link rel="stylesheet" href="css/estilosAdminGestProfe.css">
+        <title>Agregar Profesor</title>
     </head>
 
     <body>
-        <th:block th:include="headerProfe"></th:block>
-        <div class="container fatherCard">
-            <div class="card">
-                <div class="card-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <h5>Datos del Nuevo Profesor</h5><br>
-                            </div>
-                        </div>  
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="row">
-                                    <div class="col-3">
-                                        <div class="form-group">
-                                            <label for="">Código</label> <br>
-                                            <input class="form-control" type="text" disabled>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="form-group">
-                                            <label for="">Nombres</label> <br>
-                                            <input class="form-control" type="text" disabled>
-                                        </div>
-                                    </div>
-                                    <div class="col-5">
-                                        <div class="form-group">
-                                            <label for="">Apellidos</label> <br>
-                                            <input class="form-control" type="text" disabled>
-                                        </div>
-                                    </div>
-                                </div>
+    <th:block th:include="headerProfe"></th:block>
 
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="">Correo de la Universidad</label>
-                                            <select class="browser-default custom-select" disabled>
-                                                <option selected disabled>Seleccione el correo</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="">Correo Personal</label>
-                                            <input class="form-control" type="text">
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                                <div class="row">
-                                    <div class="col-4">
-                                        <div class="form-group">
-                                            <label for="">País</label> <br>
-                                            <select class="browser-default custom-select" disabled>
-                                                <option selected disabled>Seleccione el país</option>
-                                                <option value="1">País 1</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="form-group">
-                                            <label for="">Género</label> <br>
-                                            <select class="browser-default custom-select" disabled>
-                                                <option selected disabled>Seleccione el género</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="form-group">
-                                            <label for="">Tipo de Docente</label> <br>
-                                            <select class="browser-default custom-select" disabled>
-                                                <option selected disabled>Seleccione el tipo</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 d-inline text-xl-right">
-                                        <div class="col-12">
-                                        <div class="form-group">
-                                            <br>
-                                            <a class="btn btn-primary" href="#" role="button"><i class="fa fa-check"></i>Actualizar Datos</a>
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <img src="img/perfil.png" class="perfil" width="200" height="190">
-                            </div>
-
-                        </div>
-
-
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <h5>Datos del Nuevo Profesor</h5><br>
                     </div>
+                </div>  
+                <div class="row">
+                    <div class="col-8">
+                        <form th:action="@{/datosProfe/}" method="POST" >
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="form-group">
+                                        <label for="">Codigo</label> <br>
+                                        <label th:text=${user} class="form-control" type="text" disabled></label><br>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label for="">Nombres</label> <br>
+                                        <label th:text=${nombre} class="form-control" type="text" disabled></label><br>
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <div class="form-group">
+                                        <label for="">Apellidos</label> <br>
+                                        <input class="form-control" type="text" disabled><br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label for="">Correo de la Universidad</label> <br>
+                                        <select class="browser-default custom-select" disabled>
+                                            <option value="1" selected>20000000@aloe.ulima.edu.pe</option>
+                                        </select><br>
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <div class="form-group">
+                                        <label for="">Correo Personal</label> <br>
+                                        <input class="form-control" type="text" name="correoProfe"><br>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="form-group">
+                                        <label for="">Género</label> <br>
+                                        <select class="browser-default custom-select" disabled>
+                                            <option selected disabled>Seleccione el género</option>
+                                            <option value="1">Femenino</option>
+                                            <option value="2">Masculino</option>
+                                        </select><br>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="form-group">
+                                        <label for="">Pais</label> <br>
+                                        <select class="browser-default custom-select" disabled>
+                                            <option selected disabled>Seleccione el país</option>
+                                            <option value="1">País 1</option>
+                                        </select><br>
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <div class="form-group">
+                                        <label for="">Tipo de Docente</label> <br>
+                                        <select class="browser-default custom-select" disabled>
+                                            <option selected disabled>Seleccione el género</option>
+                                            <option value="1">Profesor</option>
+                                            <option value="2">Jefe de Practicas</option>
+                                        </select><br>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <br>
+                                        <button type="submit" class="btn btn-primary" ><i class="fa fa-check"></i>Actualizar Datos</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br>
+                        </form>
+                    </div>
+
+                    <div class="col-4">
+                        <img src="img/perfil.png" class="perfil" width="200" height="190">
+                    </div>
+
                 </div>
+
             </div>
         </div>
-        <th:block th:include="footer"></th:block>
-        <th:block th:include="bootstrapScripts"></th:block>
-    </body>
+    </div>
+
+</body>

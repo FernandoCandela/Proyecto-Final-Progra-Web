@@ -1,4 +1,4 @@
-
+/*
 package edu.ulima.controller;
 
 import org.springframework.stereotype.Controller;
@@ -46,3 +46,4 @@ public class DemoController {
         return "adminGestSecc";
     }
 }
+*/
