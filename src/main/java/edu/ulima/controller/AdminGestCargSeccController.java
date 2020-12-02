@@ -16,23 +16,32 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class AdminGestCargSeccController {
 
     private SectionRepositorio sectionRep;
-
+    //private TeacherRepositorio teaRep;
+    //private CareerRepositorio caRep;
     @Autowired
-    public void userController(SectionRepositorio sectionRep) {
+    public void userController(SectionRepositorio sectionRep/*, TeacherRepositorio teaRep, CareerRepositorio caRep*/) {
         this.sectionRep = sectionRep;
+        //this.teaRep=teaRep;
+        //this.caRep=caRep;
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String sectionInicio(Model model, HttpServletRequest req) {
         List<Section> secciones = sectionRep.findAll();
         List<Section1> sect1 = new ArrayList<>();
+       /* List<Teacher> profe = teaRep.findAll();
+        List<Teacher1> profe1 = new ArrayList<>();*/
+        
+        
         for (int i = 0; i < secciones.size(); i++) {
             System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
             Section sect = secciones.get(i);
+            
             System.out.println(sect);
             
             Course co= sect.getCourse_id();
-            //Career ca = sect.getCareer_id();
+            
+            Career ca = co.getCareer_id();
             Period pe= sect.getPeriod_id();
             //falta el de teacher 
             
@@ -42,8 +51,9 @@ public class AdminGestCargSeccController {
             sec1.setCode(sect.getCode());
             sec1.setCourse_name(co.getName());
             sec1.setCourse_code(co.getCode());
-            //sec1.setCarrer_name(ca.getName());
-            sec1.setPeriod_name(co.getName());
+            
+            sec1.setCarrer_name(ca.getName());
+            sec1.setPeriod_name(pe.getName());
             //teacher
             sect1.add(sec1);
 

@@ -17,4 +17,5 @@ public class Section1 {
     private Integer course_code;
     private String carrer_name;
     private String period_name;
+    private String teacher_name;
 }
