@@ -1,4 +1,4 @@
-package edu.ulima.controller;
+/*package edu.ulima.controller;
 
 import edu.ulima.clienterest.Student1;
 import edu.ulima.clienterest.Teacher1;
@@ -89,3 +89,4 @@ public class ApiController {
         return lp;
     }
 }
+*/

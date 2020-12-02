@@ -1,4 +1,4 @@
-/*
+
 package edu.ulima.controller;
 
 import org.springframework.stereotype.Controller;
@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class DemoController {
-    @RequestMapping(value = "/admin/gestionAlum")
+    /*@RequestMapping(value = "/admin/gestionAlum")
     public String adminGestionAl() {
         return "adminGestCargAlum";
-    }
+    }*/
     
     @RequestMapping(value = "/datosAlum")
     public String datosAlum() {
@@ -19,11 +19,6 @@ public class DemoController {
     @RequestMapping(value = "/inicioAdmin")
     public String inicioAdmin() {
         return "inicioAdmin";
-    }
-    
-    @RequestMapping(value = "/datosProfe")
-    public String datosProfe() {
-        return "profesor";
     }
     
     @RequestMapping(value = "/seccionesProfe")
@@ -46,4 +41,3 @@ public class DemoController {
         return "adminGestSecc";
     }
 }
-*/

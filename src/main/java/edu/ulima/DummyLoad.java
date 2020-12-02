@@ -104,8 +104,8 @@ public class DummyLoad implements CommandLineRunner {
         User us10 = repoUser.save(new User(10));
 
         //GENDER
-        Gender g1 = repoG.save(new Gender(1, "FEMENINO"));
-        Gender g2 = repoG.save(new Gender(2, "MASCULINO"));
+        Gender g1 = repoG.save(new Gender(1, "MASCULINO"));
+        Gender g2 = repoG.save(new Gender(2, "FEMENINO"));
         //CAREER
         Career c1 = repoCa.save(new Career(1, "ESTUDIOS GENERALES"));
         Career c2 = repoCa.save(new Career(2, "ADMINISTRACION"));
