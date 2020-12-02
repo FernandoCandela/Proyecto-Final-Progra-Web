@@ -38,35 +38,16 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>2020001</td>
-                        <td>Matemáticas</td>
-                        <td>2020001</td>
-                        <td>Estudios Generales</td>
-                        <td>2020-1</td>
-                        <td>Juan Perez</td>
-                        <td>
-                          <a class="text-dark" href="#"><i class="fas fa-pencil-alt"></i></a>
-                          <!--<button type="submit"><i class="fas fa-pencil-alt"></i></button> -->
-                        </td>
-                        <td>
-                          <button type="submit"><i class="fas fa-times"></i></button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>2020001</td>
-                        <td>Matemáticas</td>
-                        <td>2020001</td>
-                        <td>Estudios Generales</td>
-                        <td>2020-1</td>
-                        <td>Juan Perez</td>
-                        <td>
-                          <a class="text-dark" href="#"><i class="fas fa-pencil-alt"></i></a>
-                        </td>
-                        <td>
-                          <button type="submit"><i class="fas fa-times"></i></button>
-                        </td>
-                      </tr>
+                       <tr th:each="x : ${listSecc}">
+                                    <td th:text="${x.code}">2020001</td>
+                                    <td th:text="${x.course_name}">Matemáticas</td>
+                                    <td th:text="${x.course_code}">Estudios Generales</td>
+                                    <td>Aun</td>
+                                    <td th:text="${x.period_name}">Estudios Generales</td>
+                                    <td>Aun</td>
+                                    <td>
+                                        <a class="text-dark" href="#"><i class="fas fa-pencil-alt"></i></a>
+                                        <button type="submit"><i class="fas fa-pencil-alt"></i></button>
                     </tbody>
                 </table>
             </div>

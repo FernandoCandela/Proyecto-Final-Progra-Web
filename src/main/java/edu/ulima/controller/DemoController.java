@@ -35,9 +35,9 @@ public class DemoController {
     public String adminGestionCurso() {
         return "adminGestCursos";
     }
-    
+    /*
     @RequestMapping(value = "/admin/gestionSeccion")
     public String adminGestionSeccion() {
         return "adminGestSecc";
-    }
+    }*/
 }
