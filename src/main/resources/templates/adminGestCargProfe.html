@@ -1,109 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;400;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/7dbf90a20f.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/estilosAdminGestProfe.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <title>Cargar Alumnos</title>
-    <script type="text/javascript">
-            const BASE_URL = "http://localhost:8080";
-    </script>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;400;700&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/7dbf90a20f.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/estilosAdminGestProfe.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <title>Cargar Profesor</title>
+        <!--<script type="text/javascript">
+                const BASE_URL = "http://localhost:8080";
+        </script>-->
+    </head>
 
-<body>
+    <body>
     <th:block th:include="header"></th:block>
     <div class="container py-3">
         <div class="card">
             <div class="card-body">
                 <div class="row">
                     <div class="col-12">
-                        <h5>Gestión de Alumnos</h5>
+                        <h5>Gestión de Profesores</h5>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label for="">Código</label> <br>
-                            <input class="form-control" type="text"><br>
+                <form action="/admin/gestionProfe/" method="POST"> 
+                    <div class="row">
+
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label for="">Código</label> <br>
+                                <input class="form-control" type="text" name="codProfe"><br>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="form-group">
-                            <label for="">Nombre</label> <br>
-                            <input class="form-control" type="text"><br>
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label for="">Nombre</label> <br>
+                                <input class="form-control" type="text" name="nomProfe"><br>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-2">
-                        <br>
-                        <button class="btn btn-success"><i class="fas fa-search"></i>  Buscar</button>
-                    </div>
-                    <div class="col-3">
-                        <h7>Carga masiva</h7>
-                        <button class="btn btn-primary"><i class="far fa-file-code"></i> Seleccionar Archivo</button>
-                    </div>
-                    <div class="col-2">
-                        <br>
-                        <button class="btn btn-warning"><i class="fas fa-cloud-upload-alt"></i>  Subir</button>
-                    </div>
-                </div><br>
+                        <div class="col-2">                 
+                            <br>
+                            <button class="btn btn-success"><i class="fas fa-search"></i>  Buscar</button>
+                        </div>
+                        <div class="col-3">
+                            <h7>Carga masiva</h7>
+                            <button class="btn btn-primary"><i class="far fa-file-code"></i> Seleccionar Archivo</button>
+                        </div>
+                        <div class="col-2">
+                            <br>
+                            <button class="btn btn-warning"><i class="fas fa-cloud-upload-alt"></i>  Subir</button>
+                        </div>
+
+                    </div><br>
+                </form>
                 <div class="row">
                     <div class="col-8" id="tablaGestion">
-                        <!--
+
                         <table class="table table-striped media-body">
                             <thead>
-                              <tr>
-                                <th scope="col">Código</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Carrera</th>
-                                <th scope="col">Género</th>
-                                <th colspan="2" scope="col">Operaciones</th>         
-                              </tr>
+                                <tr>
+                                    <th scope="col">Código</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Tipo</th>
+                                    <th scope="col">Género</th>
+                                    <th colspan="2" scope="col">Operaciones</th>         
+                                </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td>2020001</td>
-                                <td>Matemáticas</td>
-                                <td>Estudios Generales</td>
-                                <td>Femenino</td>
-                                <td>
-                                  <a class="text-dark" href="#"><i class="fas fa-pencil-alt"></i></a>
-                                  <!--<button type="submit"><i class="fas fa-pencil-alt"></i></button> -->
-                                <!--</td>
-                                <td>
-                                  <button type="submit"><i class="fas fa-times"></i></button>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>2020001</td>
-                                <td>Historia</td>
-                                <td>Estudios Generales</td>
-                                <td>Femenino</td>
-                                <td>
-                                  <a class="text-dark" href="#"><i class="fas fa-pencil-alt"></i></a>
-                                </td>
-                                <td>
-                                  <button type="submit"><i class="fas fa-times"></i></button>
-                                </td>
-                              </tr>
+                                <tr th:each="x : ${listProfe}">
+                                    <td th:text="${x.code}">2020001</td>
+                                    <td th:text="${x.names}">Matemáticas</td>
+                                    <td th:text="${x.teacher_type}">Estudios Generales</td>
+                                    <td th:text="${x.gender_name}">Femenino</td>
+                                    <td>
+                                        <a class="text-dark" href="#"><i class="fas fa-pencil-alt"></i></a>
+                                        <button type="submit"><i class="fas fa-pencil-alt"></i></button>
                             </tbody>
-                        </table>-->
+                        </table>
+                        <!--</td>
+                        <td>
+                          <button type="submit"><i class="fas fa-times"></i></button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2020001</td>
+                        <td>Historia</td>
+                        <td>Estudios Generales</td>
+                        <td>Femenino</td>
+                        <td>
+                          <a class="text-dark" href="#"><i class="fas fa-pencil-alt"></i></a>
+                        </td>
+                        <td>
+                          <button type="submit"><i class="fas fa-times"></i></button>
+                        </td>
+                      </tr>
+                    </tbody>
+                </table>-->
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
-                      <button class="btn btn-primary "><i class="fas fa-plus"></i>  Agregar Alumno</button>        
+                        <form method="POST" action="/admin/gestionProfe/ir" >
+                            <button class="btn btn-primary "><i class="fas fa-plus"></i>  Agregar Profesor</button>
+                        </form>
                     </div>
-                  </div>
-              </div>
-            </div>      
-        </div>
-        
-
+                </div>
+            </div>
+        </div>      
     </div>
-    <th:block th:include="footer"></th:block>
-    <th:block th:include="bootstrapScripts"></th:block>
+
+<th:block th:include="footer"></th:block>
+<th:block th:include="bootstrapScripts"></th:block>
+<!--<script src="/js/generarTabla.js"></script>-->
 </body>

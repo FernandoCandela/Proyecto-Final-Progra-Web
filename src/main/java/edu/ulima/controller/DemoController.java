@@ -26,10 +26,10 @@ public class DemoController {
         return "profeVerSeccion";
     }
     
-    @RequestMapping(value = "/admin/gestionProfe")
+    /*@RequestMapping(value = "/admin/gestionProfe")
     public String adminGestionProf() {
         return "adminGestCargProfe";
-    }
+    }*/
     
     @RequestMapping(value = "/admin/gestionCurso")
     public String adminGestionCurso() {

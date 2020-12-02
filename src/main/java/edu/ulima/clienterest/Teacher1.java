@@ -13,5 +13,5 @@ public class Teacher1 {
     private String names;
     private String last_names;
     private String gender_name;
-    private String teacher_type;
+    private String teacher_type;    
 }
