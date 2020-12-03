@@ -20,7 +20,7 @@ public class SectionTeacher implements Serializable {
 
     @Id
     @Column(name = "ID", nullable = false)
-    private Integer id;
+    private Integer ide;
 
     @ManyToOne
     @JoinColumn(name = "SECTION_ID", nullable = false)

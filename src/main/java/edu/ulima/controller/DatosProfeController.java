@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import edu.ulima.entidad.*;
 import edu.ulima.persistencia.*;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Controller
@@ -27,9 +28,10 @@ public class DatosProfeController {
     public String teacherInicio(Model model, HttpServletRequest req) {
 
         String user = String.valueOf(req.getSession().getAttribute("user"));
+        String teacher_id = String.valueOf(req.getSession().getAttribute("teacher_id"));
 
         model.addAttribute("user", user);
-        Teacher Profe = teacherRep.findByCode(Integer.parseInt(user));
+        Teacher Profe = teacherRep.findByCodeOrId(Integer.parseInt(user), null);
         System.out.println(Profe);
         
         System.out.println("******************");
@@ -68,8 +70,9 @@ public class DatosProfeController {
     public String actualizaCorreo(HttpServletRequest req, @RequestParam("correoProfe") String correo){
         System.out.println("************************");
         String user = String.valueOf(req.getSession().getAttribute("user"));
+        String teacher_id = String.valueOf(req.getSession().getAttribute("teacher_id"));
         System.out.println(user);
-        Teacher Profe = teacherRep.findByCode(Integer.parseInt(user));
+        Teacher Profe = teacherRep.findByCodeOrId(Integer.parseInt(user), null);
         System.out.println(Profe);
         Profe.setEmail(correo);
         System.out.println(Profe.getEmail());

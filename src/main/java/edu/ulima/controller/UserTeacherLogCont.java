@@ -46,6 +46,7 @@ public class UserTeacherLogCont {
             System.out.print("*se logea*");
             req.getSession().setAttribute("user", user);
             req.getSession().setAttribute("password", password);
+            req.getSession().setAttribute("teacher_id", userTeaRep.getTeacher_id());
             return "redirect:/inicioProfe";
         } else {
             System.out.print("*Usuario o contraseña incorrecta*");
