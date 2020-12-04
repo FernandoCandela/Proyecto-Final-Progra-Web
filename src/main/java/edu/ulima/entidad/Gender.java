@@ -19,12 +19,15 @@ public class Gender implements Serializable {
     
     @Id
     @Column(name = "ID", nullable = false)
-    private Integer id;
+    private Integer ide;
     
     @Column(name = "NAME",length = 15 ,nullable = false)
     private String name;
     
     public String getName() {
         return name;
+  }
+    public Integer getId() {
+        return ide;
   }
 }

@@ -18,7 +18,7 @@ public class Career implements Serializable {
 
     @Id
     @Column(name = "ID", nullable = false)
-    private Integer id;
+    private Integer ide;
 
     @Column(name = "NAME", length = 25, nullable = false)
     private String name;

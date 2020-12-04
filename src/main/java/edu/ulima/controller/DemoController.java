@@ -30,11 +30,12 @@ public class DemoController {
     public String adminGestionProf() {
         return "adminGestCargProfe";
     }*/
-    
+    /*
     @RequestMapping(value = "/admin/gestionCurso")
     public String adminGestionCurso() {
         return "adminGestCursos";
     }
+    */
     /*
     @RequestMapping(value = "/admin/gestionSeccion")
     public String adminGestionSeccion() {

@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" <html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,11 +70,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr th:each="x : ${listAlum}">
-                                    <td th:text="${x.code}">2020001</td>
-                                    <td th:text="${x.names}">Matemáticas</td>
-                                    <td th:text="${x.carrer_name}">Estudios Generales</td>
-                                    <td th:text="${x.garden_name}">Femenino</td>
+                                 <tr th:each="p : ${paginationAlumn}">
+                                    <td><span th:utext="${p.code}"></span></td>
+                                    <td><span th:utext="${p.names}"></span></td>
+                                    <td><span th:utext="${p.carrer_name}"></span></td>
+                                   <td><span th:utext="${p.garden_name}"></span></td>
+                                  
                                     <td>
                                         <a class="text-dark" href="#"><i class="fas fa-pencil-alt"></i></a>
                                         <button type="submit"><i class="fas fa-pencil-alt"></i></button>
@@ -105,8 +108,22 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="page-navigator" th:if="${totalPages > 1}">
+                    <th:block th:each="pag : ${navigationPages}">
+                        <a class="nav-item" 
+                           th:href="@{|/admin/gestionAlum?page=${pag}|}" 
+                           th:if="${pag != -1}" th:utext="${pag}">
+                        </a>
+
+                        <span class="nav-item" th:if="${pag == -1}"> ... </span>
+
+                    </th:block>
+                </div>
         </div>      
     </div>
+    
+     
 
 
 </div>

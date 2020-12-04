@@ -4,5 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CareerRepositorio extends JpaRepository<Career,String> {
     public Career findByName(String name);
+    public Career findByIde(Integer ide);
 
 }

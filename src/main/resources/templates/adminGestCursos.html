@@ -1,61 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;400;700&display=swap" rel="stylesheet">
-    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
-    <script src="https://kit.fontawesome.com/7dbf90a20f.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/estilosAdminGestProfe.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/estilosAlumno.css">
-    <title>Gestión de Curso</title>
-</head>
+<html lang="en" <html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;400;700&display=swap" rel="stylesheet">
+        <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
+        <script src="https://kit.fontawesome.com/7dbf90a20f.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/estilosAdminGestProfe.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/estilosAlumno.css">
+        <title>Gestión de Curso</title>
+    </head>
 
-<body>
+    <body>
     <th:block th:include="header"></th:block>
     <div class="container py-5">
-      <div class="card">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-12">
-                <h5>Gestión de Cursos</h5>
-            </div>
-        </div> 
-        <div class="row">
-            <div class="col-7">
-                <table class="table table-striped media-body">
-                    <thead>
-                      <tr>
-                        <th scope="col">Código</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Carrera</th>
-                        <th colspan="2" scope="col">Operaciones</th>         
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr th:each="x : ${listCour}">
-                                    <td th:text="${x.code}">2020001</td>
-                                    <td th:text="${x.name}">Matemáticas</td>
-                                    <td th:text="${x.carrer_name}">Estudios Generales</td>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <h5>Gestión de Cursos</h5>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="col-7">
+                        <table class="table table-striped media-body">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Código</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Carrera</th>
+                                    <th colspan="2" scope="col">Operaciones</th>         
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="p : ${paginationCourses}">
+                                    <td th:utext="${p.code}">2020001</td>
+                                    <td th:utext="${p.name}">Matemáticas</td>
+                                    <td th:utext="${p.carrer_name}">Estudios Generales</td>
                                     <td>
                                         <a class="text-dark" href="#"><i class="fas fa-pencil-alt"></i></a>
                                         <button type="submit"><i class="fas fa-pencil-alt"></i></button>
-                    </tbody>
-                </table>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-primary "><i class="fas fa-plus"></i>  Agregar Curso</button>        
+                    </div>
+                </div>
+                <div class="page-navigator" th:if="${totalPages > 1}">
+                    <th:block th:each="pag : ${navigationPages}">
+                        <a class="nav-item" 
+                           th:href="@{|/admin/gestionCurso?page=${pag}|}" 
+                           th:if="${pag != -1}" th:utext="${pag}">
+                        </a>
+                        
+
+                        <span class="nav-item" th:if="${pag == -1}"> ... </span>
+
+                    </th:block>
+                </div>
             </div>
-          </div>
-        <div class="row">
-          <div class="col-12">
-            <button class="btn btn-primary "><i class="fas fa-plus"></i>  Agregar Curso</button>        
-          </div>
         </div>
-        </div>
-      </div>
-        
+
     </div>
-    
+
     <th:block th:include="footer"></th:block>
     <th:block th:include="bootstrapScripts"></th:block>
 </body>
