@@ -72,13 +72,13 @@
                             <tbody>
                                  <tr th:each="p : ${paginationAlumn}">
                                     <td><span th:utext="${p.code}"></span></td>
-                                    <td><span th:utext="${p.names}"></span></td>
+                                    <td><span th:utext="${p.names} + ' ' + ${p.last_names}"></span></td>
                                     <td><span th:utext="${p.carrer_name}"></span></td>
                                    <td><span th:utext="${p.garden_name}"></span></td>
                                   
                                     <td>
                                         <a class="text-dark" href="#"><i class="fas fa-pencil-alt"></i></a>
-                                        <button type="submit"><i class="fas fa-pencil-alt"></i></button>
+                                        <button type="submit"><i class="fas fa-times"></i></i></button>
                             </tbody>
                         </table>
                         <!--</td>

@@ -13,6 +13,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,10 +21,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 
 public class AdminGestCargProfeController {
+
     @Autowired
     private TeacherRepositorio teaRep;
 
-    
     @RequestMapping({"/admin/gestionProfe"})
     public String teachInicio(Model model,
             @RequestParam(value = "page", defaultValue = "1") int page) {
@@ -45,7 +46,7 @@ public class AdminGestCargProfeController {
             totalPages = (totalRecords / maxResult) + 1;
         }
 
-        int currentPage = pageIndex + 1; 
+        int currentPage = pageIndex + 1;
 
         List<Integer> navigationPages = new ArrayList<>();
         int current = currentPage > totalPages ? totalPages : currentPage;
@@ -85,16 +86,16 @@ public class AdminGestCargProfeController {
 
         // Convertir la lista de Entidad a Modelo
         List<Teacher1> ltmp = new ArrayList<>();
-        
+
         for (Teacher t : result0) {
 
             Teacher1 t1 = new Teacher1(t.getCode(), t.getNames(), t.getLast_names(), " ", " ");
-            Gender ide_ge=t.getGender_id();
+            Gender ide_ge = t.getGender_id();
             System.out.println("#################################################");
             System.out.println(ide_ge.getName());
             System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
             t1.setGender_name(ide_ge.getName());
-            
+
             TeacherType ide_ty = t.getTeacher_type_id();
             t1.setTeacher_type(ide_ty.getName());
 
@@ -114,89 +115,90 @@ public class AdminGestCargProfeController {
         return "adminGestCargProfe";
     }
 
-/*
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/gestionProfe/", method = RequestMethod.POST)
     public String buscarNombre(Model model, HttpServletRequest req, @RequestParam("nomProfe") String nomProfe, @RequestParam("codProfe") Integer codProfe) {
-        //List<Student> students = stdRep.findByNamesContainingIgnoreCase(nomAlumno);
         if (nomProfe == "") {
             List<Teacher> teachers = teaRep.findByCodeAndNamesContainingIgnoreCase(codProfe, nomProfe);
             List<Teacher1> tea1 = new ArrayList<>();
-            for (int i = 0; i < teachers.size(); i++) {
-                System.out.println("2********************************************");
-                Teacher t = teachers.get(i);
-                System.out.println(t);
-                Gender ge = t.getGender_id();
-                TeacherType tt = t.getTeacher_type_id();
-                System.out.println(ge);
-                Teacher1 t1 = new Teacher1();
-                System.out.println(t1);
-                t1.setCode(t.getCode());
-                t1.setNames(t.getNames());
-                t1.setLast_names(t.getLast_names());
-                t1.setGender_name(ge.getName());
-                t1.setTeacher_type(tt.getName());
+            for (Teacher t : teachers) {
+
+                Teacher1 t1 = new Teacher1(t.getCode(), t.getNames(), t.getLast_names(), " ", " ");
+                Gender ide_ge = t.getGender_id();
+                System.out.println("#################################################");
+                System.out.println(ide_ge.getName());
+                System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                t1.setGender_name(ide_ge.getName());
+
+                TeacherType ide_ty = t.getTeacher_type_id();
+                t1.setTeacher_type(ide_ty.getName());
+
                 tea1.add(t1);
-
-                model.addAttribute("listProfe", tea1);
-
-                System.out.println(t1);
+                model.addAttribute("paginationTeach", tea1);
+                System.out.println("******************************************************************");
+                System.out.println(tea1);
 
             }
         }
         if (codProfe == null) {
             List<Teacher> teachers = teaRep.findByNamesContainingIgnoreCase(nomProfe);
             List<Teacher1> tea1 = new ArrayList<>();
-            for (int i = 0; i < teachers.size(); i++) {
-                System.out.println("2********************************************");
-                Teacher t = teachers.get(i);
-                System.out.println(t);
-                Gender ge = t.getGender_id();
-                TeacherType tt = t.getTeacher_type_id();
-                System.out.println(ge);
-                Teacher1 t1 = new Teacher1();
-                System.out.println(t1);
-                t1.setCode(t.getCode());
-                t1.setNames(t.getNames());
-                t1.setLast_names(t.getLast_names());
-                t1.setGender_name(ge.getName());
-                t1.setTeacher_type(tt.getName());
+
+            for (Teacher t : teachers) {
+
+                Teacher1 t1 = new Teacher1(t.getCode(), t.getNames(), t.getLast_names(), " ", " ");
+                Gender ide_ge = t.getGender_id();
+                System.out.println("#################################################");
+                System.out.println(ide_ge.getName());
+                System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                t1.setGender_name(ide_ge.getName());
+
+                TeacherType ide_ty = t.getTeacher_type_id();
+                t1.setTeacher_type(ide_ty.getName());
+
                 tea1.add(t1);
-
-                model.addAttribute("listProfe", tea1);
-
-                System.out.println(t1);
+                model.addAttribute("paginationTeach", tea1);
+                System.out.println("******************************************************************");
+                System.out.println(tea1);
             }
+
         }
         List<Teacher> teachers = teaRep.findByCodeAndNamesContainingIgnoreCase(codProfe, nomProfe);
         List<Teacher1> tea1 = new ArrayList<>();
-        for (int i = 0; i < teachers.size(); i++) {
-            System.out.println("2********************************************");
-            Teacher t = teachers.get(i);
-            System.out.println(t);
-            Gender ge = t.getGender_id();
-            TeacherType tt = t.getTeacher_type_id();
-            System.out.println(ge);
-            Teacher1 t1 = new Teacher1();
-            System.out.println(t1);
-            t1.setCode(t.getCode());
-            t1.setNames(t.getNames());
-            t1.setLast_names(t.getLast_names());
-            t1.setGender_name(ge.getName());
-            t1.setTeacher_type(tt.getName());
+        for (Teacher t : teachers) {
+
+            Teacher1 t1 = new Teacher1(t.getCode(), t.getNames(), t.getLast_names(), " ", " ");
+            Gender ide_ge=t.getGender_id();
+            System.out.println("#################################################");
+            System.out.println(ide_ge.getName());
+            System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+            t1.setGender_name(ide_ge.getName());
+            
+            TeacherType ide_ty = t.getTeacher_type_id();
+            t1.setTeacher_type(ide_ty.getName());
+
             tea1.add(t1);
+            model.addAttribute("paginationTeach", tea1);    
+            System.out.println("******************************************************************");
+            System.out.println(tea1);
+            System.out.println("********************************************");
 
-            model.addAttribute("listProfe", tea1);
-
-            System.out.println(t1);
-        }
-        System.out.println("********************************************");
-
+        
+    }
         //return st1;
         return "adminGestCargProfe";
-    }
-    
-    @RequestMapping(value = "/ir", method = RequestMethod.POST)
+}
+
+    @RequestMapping(value = "/admin/gestionProfe/ir", method = RequestMethod.POST)
     public String irAgegarProfe() {
         return "redirect:/agregarProfesor";
-    }*/
+    }
+
+    @RequestMapping(value = "/admin/gestionProfe/delete/{y}", method = RequestMethod.POST)
+    public String borrar(@PathVariable("y") String y) {
+        System.out.println("**************************");
+        System.out.println(y);
+        Integer y1 = Integer.parseInt(y);
+        teaRep.deleteByCode(y1);
+        return "redirect:/admin/gestionProfe/";
+    }
 }

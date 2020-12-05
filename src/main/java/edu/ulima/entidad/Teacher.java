@@ -44,7 +44,7 @@ public class Teacher implements Serializable {
     private Country country_id;
 
     @ManyToOne
-    @JoinColumn(name = "TEACHER_TYPE_ID", nullable = false)
+    @JoinColumn(name = "TEACHER_TYPE_ID")
     private TeacherType teacher_type_id;
 
     @Column(name = "PHOTO_URL", length = 100, nullable = false)
