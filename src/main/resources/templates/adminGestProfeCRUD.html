@@ -6,12 +6,13 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/estilosAdminGestProfe.css">
+        <link rel="stylesheet" href="/css/estilosAlumno.css">
         <title>Agregar Profesor</title>
     </head>
 
     <body>
-        <div class="container">
+        <th:block th:include="header"></th:block>
+        <div class="container py-3">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
@@ -45,7 +46,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-4">
+                                    <div class="col-6">
                                         <div class="form-group">
                                             <label for="">Correo de la Universidad</label> <br>
                                             <input class="form-control" type="text" name="email"><br>
@@ -57,13 +58,16 @@
                                           </select><br>-->
                                         </div>
                                     </div>
-                                    <div class="col-5">
+                                    <div class="col-6">
                                         <div class="form-group">
                                             <label for="">Correo Personal</label> <br>
                                             <input class="form-control" type="text" name="personal_email"><br>
                                         </div>
                                     </div>
-                                    <div class="col-3">
+                                    
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
                                         <div class="form-group">
                                             <label for="">Género</label> <br>
                                             <select class="browser-default custom-select" name="gender_id">
@@ -76,9 +80,7 @@
                                             </select><br>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-3">
+                                    <div class="col-4">
                                         <div class="form-group">
                                             <label for="">Pais</label> <br>
                                             <select class="browser-default custom-select" name="country_id">
@@ -91,7 +93,7 @@
                                             </select><br>
                                         </div>
                                     </div>
-                                    <div class="col-5">
+                                    <div class="col-4">
                                         <div class="form-group">
                                             <label for="">Tipo de Docente</label> <br>
                                             <select class="browser-default custom-select" name="teacher_type_id">
@@ -104,13 +106,21 @@
                                             </select><br>
                                         </div>
                                     </div>
+                                    
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="">URL foto</label> <br>
+                                            <input class="form-control" type="text" name="url"><br>
+                                        </div>
+                                    </div>
                                 </div>
                                 <br><br>
                                 <div class="row">
                                     <div class="col-12 d-inline text-xl-right">
                                         <!--<a class="btn btn-primary" href="#" role="button"><i class="fa fa-check"></i>Actualizar Datos</a>-->
                                         <button class="btn btn-success" type="submit"><i class="fa fa-check"></i>  Actualizar Datos</button>
-                                        <a class="btn btn-success" href="#" role="button"><i class="fa fa-image"></i>Seleccionar Foto</a>
                                         <a class="btn btn-warning" href="#" role="button"><i class="fa fa-upload"></i>Subir</a>
                                     </div>
                                 </div>
@@ -128,5 +138,6 @@
 
 
         </div>
-
+    <th:block th:include="footer"></th:block>
+    <th:block th:include="bootstrapScripts"></th:block>
     </body>

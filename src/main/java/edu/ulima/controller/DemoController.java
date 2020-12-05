@@ -1,11 +1,19 @@
 
 package edu.ulima.controller;
 
+import edu.ulima.persistencia.StudentRepositorio;
+import edu.ulima.persistencia.TeacherRepositorio;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class DemoController {
+    @Autowired
+    private StudentRepositorio sRep;
+    
+    @Autowired
+    private TeacherRepositorio tRep;
     /*@RequestMapping(value = "/admin/gestionAlum")
     public String adminGestionAl() {
         return "adminGestCargAlum";

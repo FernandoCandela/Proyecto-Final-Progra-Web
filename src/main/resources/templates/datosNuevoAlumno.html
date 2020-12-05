@@ -15,7 +15,7 @@
 
     <body>
     <th:block th:include="headerAlumno"></th:block>
-    <div class="container fatherCard">
+    <div class="container fatherCard py-3">
         <div class="card">
             <div class="card-body">
                 <div class="row">
@@ -25,24 +25,24 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12 col-md-8 col-lg-8">
-                        <form th:action="@{/datosAlum/}" method="POST" >
+                        <form>
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-3">
                                     <div class="form-group">
-                                        <label for="">Código</label>
-                                        <label th:text=${user} class="form-control disabled" type="text" disabled></label>
+                                        <label>Código</label>
+                                        <input class="form-control" type="text" name="codigo">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-md-6 col-lg-4">
                                     <div class="form-group">
-                                        <label for="">Nombres</label>
-                                         <label th:text=${nombre} class="form-control disabled" type="text" disabled></label>
+                                        <label>Nombres</label>
+                                         <input class="form-control" type="text" name="nombres">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-md-6 col-lg-5">
                                     <div class="form-group">
-                                        <label for="">Apellidos</label>
-                                       <label th:text=${apellidos} class="form-control disabled" type="text" disabled></label>
+                                        <label>Apellidos</label>
+                                       <input class="form-control" type="text" name="apellidos">
                                     </div>
                                 </div>
                             </div>
@@ -51,14 +51,12 @@
                                 <div class="col-sm-12 col-md-12 col-lg-6">
                                     <div class="form-group">
                                         <label for="">Correo de la Universidad</label>
-                                        <select class="browser-default custom-select" disabled>
-                                            <option th:text=${correo} selected disabled></option>
-                                        </select>
+                                        <input class="form-control" type="text" name="correo">
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-12 col-lg-6">
                                     <div class="form-group">
-                                        <label for="">Correo Personal</label>
+                                        <label>Correo Personal</label>
                                        <input class="form-control" type="text" name="correoProfe">
                                     </div>
                                 </div>
@@ -66,25 +64,25 @@
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-4">
                                     <div class="form-group">
-                                        <label for="">Género</label>
-                                        <select class="browser-default custom-select" disabled>
-                                          <option th:text=${genero} selected disabled></option>
+                                        <label>Género</label>
+                                        <select class="browser-default custom-select" >
+                                            <option ></option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6 col-lg-4">
                                     <div class="form-group">
-                                        <label for="">País</label>
-                                        <select class="browser-default custom-select" disabled>
-                                            <option th:text=${pais_nombre} selected disabled></option>
+                                        <label>País</label>
+                                        <select class="browser-default custom-select" >
+                                            <option></option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6 col-lg-4">
                                     <div class="form-group">
-                                        <label for="">Carrera</label>
-                                        <select class="browser-default custom-select" disabled>
-                                             <option th:text=${carrera} selected disabled></option>
+                                        <label>Carrera</label>
+                                        <select class="browser-default custom-select">
+                                             <option ></option>
                                         </select>
                                     </div>
                                 </div>
@@ -92,19 +90,19 @@
                             <div class="row">
                                 <div class="col-sm-12 col-md-6 col-lg-4">
                                     <div class="form-group">
-                                        <label for="">Usuario de TeamViewer</label>
+                                        <label>Usuario de TeamViewer</label>
                                         <input class="form-control" type="text">
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6 col-lg-4">
                                     <div class="form-group">
-                                        <label for="">Contraseña de TeamViewer</label>
+                                        <label>Contraseña de TeamViewer</label>
                                         <input class="form-control" type="text">
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-12 col-lg-4">
                                     <div class="form-group">
-                                        <label for="">Credenciales de AnyDesk</label>
+                                        <label>Credenciales de AnyDesk</label>
                                         <input class="form-control" type="text">
                                     </div>
                                 </div>
@@ -113,25 +111,25 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="">URL foto</label>
-                                         <label th:text=${url} class="form-control disabled" type="text" disabled></label>
+                                        <label>URL foto</label>
+                                         <input class="form-control" type="text">
                                     </div>
                                 </div>
                                 
                             </div>
                             <div class="row">
                                 <div class="col-12 text-xl-right">
-                                    <a class="btn btn-primary" href="#" role="button"><i class="fa fa-check"></i> Actualizar
+                                    <a class="btn btn-primary" href="#" role="button"><i class="fa fa-check"></i> Registrar
                                         Datos</a>
                                 </div>
                             </div>
                         </form>
-                    </div>
+                    </div><!--
                      <form th:action="@{/datosAlum/}" method="POST" >
                         <div class="col-4">
                                 <img <img th:src="@{${url}}" class="perfil" width="200" height="190">
                             </div>
-                    </form>
+                    </form>-->
 
                 </div>
             </div>

@@ -11,11 +11,11 @@
         </li>
       </ul>
         <li class="nav-item">
-          <a class="nav-link text-light" href="#">Nombre y Apellido &nbsp;</a>
+          <a class="nav-link text-light" th:text="${nombres}" th:href="@{/datosAlum}"></a>
         </li>
       
       <li class="nav-item">
-        <a class="nav-link text-light" th:href="@{/login/student}"> Salir&nbsp;&nbsp;</a>
+        <a class="nav-link text-light" th:href="@{/login/student}">&nbsp;&nbsp;Salir&nbsp;&nbsp;</a>
       </li>
 
     </div>

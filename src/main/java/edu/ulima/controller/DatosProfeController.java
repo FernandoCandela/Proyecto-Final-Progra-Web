@@ -41,6 +41,11 @@ public class DatosProfeController {
         String apellidos= Profe.getLast_names();
         model.addAttribute("apellidos", apellidos);
         
+        /*********Para el nombre en el header**********/
+        String nombreCompleto = nombre + " " + apellidos;
+        model.addAttribute("nombresT", nombreCompleto);
+        /*********************************************/
+        
         String correo= Profe.getEmail();
         model.addAttribute("correo", correo);
         String correoPersonal= Profe.getPersonal_email();

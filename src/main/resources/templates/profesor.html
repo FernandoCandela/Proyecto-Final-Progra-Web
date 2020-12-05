@@ -7,18 +7,19 @@
         <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link rel="stylesheet" href="css/estilosAdminGestProfe.css">
+        <link rel="stylesheet" href="/css/estilosAlumno.css">
         <title>Agregar Profesor</title>
     </head>
 
     <body>
     <th:block th:include="headerProfe"></th:block>
 
-    <div class="container">
+    <div class="container py-3">
         <div class="card">
             <div class="card-body">
                 <div class="row">
                     <div class="col-12">
-                        <h5>Datos del Nuevo Profesor</h5><br>
+                        <h5>Datos del Profesor</h5><br>
                     </div>
                 </div>  
                 <div class="row">
@@ -27,89 +28,103 @@
                             <div class="row">
                                 <div class="col-3">
                                     <div class="form-group">
-                                        <label for="">Codigo</label> <br>
-                                        <label th:text=${user} class="form-control" type="text" disabled></label><br>
+                                        <label for="">Código</label> <br>
+                                        <label th:text=${user} class="form-control disabled" type="text" disabled></label><br>
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label for="">Nombres</label> <br>
-                                        <label th:text=${nombre} class="form-control" type="text" disabled></label><br>
+                                        <label th:text=${nombre} class="form-control disabled" type="text" disabled></label><br>
                                     </div>
                                 </div>
                                 <div class="col-5">
                                     <div class="form-group">
                                         <label for="">Apellidos</label> <br>
-                                        <label th:text=${apellidos} class="form-control" type="text" disabled></label>
+                                        <label th:text=${apellidos} class="form-control disabled" type="text" disabled></label>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-6">
                                     <div class="form-group">
                                         <label for="">Correo de la Universidad</label> <br>
                                         <select class="browser-default custom-select" disabled>
-                                           <option th:text=${correo} selected disabled></option>
+                                            <option th:text=${correo} selected disabled></option>
                                         </select><br>
                                     </div>
                                 </div>
-                                <div class="col-5">
+                                <div class="col-6">
                                     <div class="form-group">
                                         <label for="">Correo Personal</label> <br>
                                         <input class="form-control" type="text" name="correoProfe"><br>
                                     </div>
                                 </div>
-                                <div class="col-3">
+
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
                                     <div class="form-group">
                                         <label for="">Género</label> <br>
                                         <select class="browser-default custom-select" disabled>
                                             <option th:text=${genero} selected disabled></option>
-                                   
-                                        </select><br>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-3">
-                                    <div class="form-group">
-                                        <label for="">Pais</label> <br>
-                                        <select class="browser-default custom-select" disabled>
-                                          <option th:text=${pais_nombre} selected disabled></option>
-                                          
-                                        </select><br>
-                                    </div>
-                                </div>
-                                <div class="col-5">
-                                    <div class="form-group">
-                                        <label for="">Tipo de Docente</label> <br>
-                                        <select class="browser-default custom-select" disabled>
-                                             <option th:text=${tipo} selected disabled></option>
-                                            
+
                                         </select><br>
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="form-group">
-                                        <br>
-                                        <button type="submit" class="btn btn-primary" ><i class="fa fa-check"></i>Actualizar Datos</button>
+                                        <label for="">País</label> <br>
+                                        <select class="browser-default custom-select" disabled>
+                                            <option th:text=${pais_nombre} selected disabled></option>
+
+                                        </select><br>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label for="">Tipo de Docente</label> <br>
+                                        <select class="browser-default custom-select" disabled>
+                                            <option th:text=${tipo} selected disabled></option>
+
+                                        </select><br>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="">URL foto</label> <br>
+                                        <label th:text=${url} class="form-control disabled" type="text" disabled></label><br>
                                     </div>
                                 </div>
                             </div>
-                            <br><br>
+                            <div class="row">
+
+                                <div class="form-group col-12 text-xl-right">
+                                   
+                                    <button type="submit" class="btn btn-primary" ><i class="fa fa-check"></i>Actualizar Datos</button>
+                                </div>
+
+                            </div>
+                          
                         </form>
                     </div>
                     <form th:action="@{/datosProfe/}" method="POST" >
                         <div class="col-4">
-                                <img <img th:src="@{${url}}" class="perfil" width="200" height="190">
-                            </div>
+                            <img <img th:src="@{${url}}" class="perfil" width="200" height="190">
+                        </div>
                     </form>
-                    
+
 
                 </div>
 
             </div>
         </div>
     </div>
-
+    <th:block th:include="footer"></th:block>
+    <th:block th:include="bootstrapScripts"></th:block>
 </body>

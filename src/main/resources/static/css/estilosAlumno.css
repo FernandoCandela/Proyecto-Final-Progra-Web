@@ -15,6 +15,15 @@ body {
     padding-top: 1.5em;
 }
 
+.disabled{
+    color: #6c757d;
+    background-color: #e9ecef;
+}
+
+#fondo{
+    width: 100%;
+}
+
 
 
 

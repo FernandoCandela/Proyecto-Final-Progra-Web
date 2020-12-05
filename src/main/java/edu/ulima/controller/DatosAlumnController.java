@@ -39,6 +39,11 @@ public class DatosAlumnController {
         String apellidos= Estudiante.getLast_names();
         model.addAttribute("apellidos", apellidos);
         
+        /*********Para el nombre en el header**********/
+        String nombreCompleto = nombre + " " + apellidos;
+        model.addAttribute("nombres", nombreCompleto);
+        /*********************************************/
+        
         String correo= Estudiante.getEmail();
         model.addAttribute("correo", correo);
         String correoPersonal= Estudiante.getPersonal_email();
