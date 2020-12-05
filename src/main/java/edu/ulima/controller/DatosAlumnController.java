@@ -13,64 +13,58 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Controller
-@RequestMapping("/datosProfe")
-public class DatosProfeController {
+@RequestMapping("/datosAlum")
+public class DatosAlumnController {
     
-    private TeacherRepositorio teacherRep;
-    private CountriesRepositorio countRepo;
+    private StudentRepositorio studentRep;
     @Autowired
-    public void userController(TeacherRepositorio teacherRep, CountriesRepositorio countRepo) {
-        this.teacherRep = teacherRep;
-        this.countRepo = countRepo;
+    public void userController(StudentRepositorio studentRep) {
+        this.studentRep = studentRep;
     }
     
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public String teacherInicio(Model model, HttpServletRequest req) {
+    public String studentInicio(Model model, HttpServletRequest req) {
 
         String user = String.valueOf(req.getSession().getAttribute("user"));
-        String teacher_id = String.valueOf(req.getSession().getAttribute("teacher_id"));
+        String student_id = String.valueOf(req.getSession().getAttribute("student_id"));
 
         model.addAttribute("user", user);
-        Teacher Profe = teacherRep.findByCodeOrId(Integer.parseInt(user), null);
-        System.out.println(Profe);
+        Student Estudiante = studentRep.findByCodeOrId(Integer.parseInt(user), null);
+        System.out.println(Estudiante);
         
         System.out.println("******************");
-        String nombre= Profe.getNames();
+        String nombre= Estudiante.getNames();
         model.addAttribute("nombre", nombre);
         
-        String apellidos= Profe.getLast_names();
+        String apellidos= Estudiante.getLast_names();
         model.addAttribute("apellidos", apellidos);
         
-        String correo= Profe.getEmail();
+        String correo= Estudiante.getEmail();
         model.addAttribute("correo", correo);
-        String correoPersonal= Profe.getPersonal_email();
+        String correoPersonal= Estudiante.getPersonal_email();
         model.addAttribute("correoPersonal", correoPersonal);
         
-        
-        Integer ide = Profe.getId();
-        model.addAttribute("ide", ide);
-        //System.out.println(ide);
-        
-        Country pais_nombre = Profe.getCountry_id();
-        model.addAttribute("pais_nombre",pais_nombre.getName());
-        System.out.println(pais_nombre);
-       
-        TeacherType tipo=Profe.getTeacher_type_id();
-        model.addAttribute("tipo",tipo.getName());
-        System.out.println(tipo);
-        
-        Gender genero = Profe.getGender_id();
+        Gender genero = Estudiante.getGender_id();
         model.addAttribute("genero",genero.getName());
         System.out.println(genero);
         
-        String url= Profe.getPhoto_url();
+        Country pais_nombre = Estudiante.getCountry_id();
+        model.addAttribute("pais_nombre",pais_nombre.getName());
+        System.out.println(pais_nombre);
+        
+        Career carrera=Estudiante.getCareer_id();
+        model.addAttribute("carrera",carrera.getName());
+        
+        Integer ide = Estudiante.getId();
+        model.addAttribute("ide", ide);
+        String url= Estudiante.getPhoto_url();
         model.addAttribute("url", url);
         System.out.println("8888888888888888888888888888888888888888888888888888");
         System.out.println(url);
-        return "profesor";
+        return "datosAlumno";
     }
     
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    /*@RequestMapping(value = "/", method = RequestMethod.POST)
     public String actualizaCorreo(HttpServletRequest req, @RequestParam("correoProfe") String correo){
         System.out.println("************************");
         String user = String.valueOf(req.getSession().getAttribute("user"));
@@ -85,4 +79,5 @@ public class DatosProfeController {
         System.out.println("************************");
         return "inicioProfesor";
     }
+*/
 }

@@ -99,10 +99,12 @@
                             <br><br>
                         </form>
                     </div>
-
-                    <div class="col-4">
-                        <img src="img/perfil.png" class="perfil" width="200" height="190">
-                    </div>
+                    <form th:action="@{/datosProfe/}" method="POST" >
+                        <div class="col-4">
+                                <img <img th:src="@{${url}}" class="perfil" width="200" height="190">
+                            </div>
+                    </form>
+                    
 
                 </div>
 

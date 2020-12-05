@@ -38,16 +38,26 @@
                       </tr>
                     </thead>
                     <tbody>
-                       <tr th:each="x : ${listSecc}">
-                                    <td th:text="${x.code}">2020001</td>
-                                    <td th:text="${x.course_name}">Matemáticas</td>
-                                    <td th:text="${x.course_code}">Estudios Generales</td>
-                                    <td th:text="${x.carrer_name}">Estudios Generales</td>
-                                    <td th:text="${x.period_name}">Estudios Generales</td>
-                                    <td th:text="${x.teacher_name}">Estudios Generales></td>
+                                     <tr th:each="p : ${paginationSecc}">
+                                    
+                                    <td><span th:utext="${p.code}"></span></td>
+                                    <td><span th:utext="${p.course_name}"></span></td>
+                                    <td><span th:utext="${p.course_code}"></span></td>
+                                   <td><span th:utext="${p.carrer_name}"></span></td>
+                                   <td><span th:utext="${p.period_name}"></span></td>
+                                  <!-- <td><span th:utext="${p.teacher_name}"></span></td>-->
+                                    
                                     <td>
                                         <a class="text-dark" href="#"><i class="fas fa-pencil-alt"></i></a>
                                         <button type="submit"><i class="fas fa-pencil-alt"></i></button>
+                                    </td>
+                                </tr>   
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
                     </tbody>
                 </table>
             </div>
@@ -56,6 +66,21 @@
             </div>
         </div>
         </div>
+          
+          
+          <div class="page-navigator" th:if="${totalPages > 1}">
+                    <th:block th:each="pag : ${navigationPages}">
+                        <a class="nav-item" 
+                           th:href="@{|/admin/gestionSeccion?page=${pag}|}" 
+                           th:if="${pag != -1}" th:utext="${pag}">
+                        </a>
+
+                        <span class="nav-item" th:if="${pag == -1}"> ... </span>
+
+                    </th:block>
+                </div>
+          
+          
       </div>
         
     </div>

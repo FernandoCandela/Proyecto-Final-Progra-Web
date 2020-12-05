@@ -10,11 +10,11 @@ public class DemoController {
     public String adminGestionAl() {
         return "adminGestCargAlum";
     }*/
-    
+    /*
     @RequestMapping(value = "/datosAlum")
     public String datosAlum() {
         return "datosAlumno";
-    }
+    }*/
     
     @RequestMapping(value = "/inicioAdmin")
     public String inicioAdmin() {

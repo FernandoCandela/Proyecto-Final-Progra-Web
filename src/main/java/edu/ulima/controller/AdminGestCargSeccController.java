@@ -8,69 +8,121 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
     
 @Controller
-@RequestMapping("/admin/gestionSeccion")
+//@RequestMapping("/admin/gestionSeccion")
 public class AdminGestCargSeccController {
-
-    private SectionRepositorio sectionRep;
-    private SectionTeacherRepositorio seteaRep;
-    //private CareerRepositorio caRep;
     @Autowired
-    public void userController(SectionRepositorio sectionRep, SectionTeacherRepositorio seteaRep) {
-        this.sectionRep = sectionRep;
-        this.seteaRep = seteaRep;
-        //this.caRep=caRep;
-    }
+    private SectionRepositorio sectionRep;
+    private SectionTeacherRepositorio sctRep;
+    
+    @RequestMapping({"/admin/gestionSeccion"})
+    public String sectionInicio(Model model,
+            @RequestParam(value = "page", defaultValue = "1") int page) {
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
-    public String sectionInicio(Model model, HttpServletRequest req) {
-        List<Section> secciones = sectionRep.findAll();
-        List<Section1> sect1 = new ArrayList<>();
-        List<SectionTeacher> profesec = seteaRep.findAll();
-        //List<SectionTeacher1> sete = new ArrayList<>();
-        
-        
-        for (int i = 0; i < secciones.size(); i++) {
-            System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-            Section sect = secciones.get(i);
-            //Cuando se agreguen todos los datos deberia funcionar lo del profesor
-            //SectionTeacher seTeacher = profesec.get(i);
-            System.out.println("**********");
-            System.out.println(secciones.size());
-            System.out.println(profesec.size());
-            
-            System.out.println(sect);
-            
-            Course co= sect.getCourse_id();
-            
-            
-            Career ca = co.getCareer_id();
-            Period pe= sect.getPeriod_id();
-            //Teacher tea = seTeacher.getTeacher_id();
-            //falta el de teacher 
-            
-            
-            Section1 sec1 = new Section1();
-            System.out.println(sec1);
-            sec1.setCode(sect.getCode());
-            sec1.setCourse_name(co.getName());
-            sec1.setCourse_code(co.getCode());
-            
-            sec1.setCarrer_name(ca.getName());
-            sec1.setPeriod_name(pe.getName());
-            //sec1.setTeacher_name(tea.getNames());            //teacher
-            sect1.add(sec1);
+        // -------------- Inicio algoritmos de paginacion
+        final int maxResult = 6; // Cantidad de resultados por pagina
+        final int maxNavigationPage = 10; // cantidad maxima de paginas
 
-            model.addAttribute("listSecc", sect1);
+        final int pageIndex = page - 1 < 0 ? 0 : page - 1;
 
-            System.out.println(sec1);
+        // Cuantos resultados existen en total
+        int totalRecords = sectionRep.findAll().size();
+
+        // calcular cuantas paginas se debe tener
+        int totalPages = 0;
+        if (totalRecords % maxResult == 0) {
+            totalPages = totalRecords / maxResult;
+        } else {
+            totalPages = (totalRecords / maxResult) + 1;
         }
-        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 
-        //return st1;
+        int currentPage = pageIndex + 1; 
+
+        List<Integer> navigationPages = new ArrayList<>();
+        int current = currentPage > totalPages ? totalPages : currentPage;
+
+        int begin = current - maxNavigationPage / 2;
+        int end = current + maxNavigationPage / 2;
+
+        // La primera pagina
+        navigationPages.add(1);
+        if (begin > 2) {
+            navigationPages.add(-1);
+        }
+
+        // Llenar un arreglo con los numero de paginas
+        for (int i = begin; i < end; i++) {
+            if (i > 1 && i < totalPages) {
+                System.out.println("En navigationPages.add " + i);
+                navigationPages.add(i);
+            }
+        }
+
+        if (end < totalPages - 2) {
+            navigationPages.add(-1);
+        }
+
+        navigationPages.add(totalPages);
+        // -------------- Fin algoritmos de paginacion
+
+        /*
+        Ir a la base de datos pero ..a buscar una pagina de datos
+         */
+        Pageable pagina = PageRequest.of(pageIndex, maxResult);
+        System.out.println(pageIndex);
+        System.out.println(maxResult);
+        // Invocar al repositorio para que retorne la pagina indicada
+        Page<Section> result0 = sectionRep.findAll(pagina);
+
+        // Convertir la lista de Entidad a Modelo
+        List<Section1> ltmp = new ArrayList<>();
+        
+        for (Section sc : result0) {
+
+            Section1 sc1 = new Section1(sc.getCode(), " ", 1 , " ", " ", " ");
+            
+            Course ide_co=sc.getCourse_id();
+            System.out.println("#################################################");
+            sc1.setCourse_name(ide_co.getName());
+            sc1.setCourse_code(ide_co.getCode());
+     
+            Career ide_ca = ide_co.getCareer_id();
+            sc1.setCarrer_name(ide_ca.getName());
+           
+            Period ide_pe= sc.getPeriod_id();
+            sc1.setPeriod_name(ide_pe.getName());
+            
+            System.out.println("////////////////////////////////////////////////////////////////");
+            Integer id_seccion= sc.getId();
+            System.out.println(id_seccion);
+            //SectionTeacher sctea = sctRep.findBySection_id(id_seccion);     
+            //System.out.println(sctea);
+            
+            
+           
+        
+            ltmp.add(sc1);
+            System.out.println("******************************************************************");
+            System.out.println(ltmp);
+        }
+
+        // Generar una pagina
+        Page<Section1> result = new PageImpl(ltmp);
+
+        // POner todo en el modelo
+        model.addAttribute("paginationSecc", result);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("navigationPages", navigationPages);
+
         return "adminGestSecc";
     }
+    
 }

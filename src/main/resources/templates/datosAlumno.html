@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+              integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/estilosAlumno.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <title>Inicio</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/estilosAlumno.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <title>Inicio</title>
-</head>
-
-<body>
+    <body>
     <th:block th:include="headerAlumno"></th:block>
     <div class="container fatherCard">
         <div class="card">
@@ -26,105 +25,104 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12 col-md-8 col-lg-8">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-12 col-lg-3">
-                                <div class="form-group">
-                                    <label for="">Código</label>
-                                    <input class="form-control" type="text" disabled>
+                        <form th:action="@{/datosAlum/}" method="POST" >
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-3">
+                                    <div class="form-group">
+                                        <label for="">Código</label>
+                                        <label th:text=${user} class="form-control" type="text" disabled></label><br>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="">Nombres</label>
+                                         <label th:text=${nombre} class="form-control" type="text" disabled></label><br>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-5">
+                                    <div class="form-group">
+                                        <label for="">Apellidos</label>
+                                       <label th:text=${apellidos} class="form-control" type="text" disabled></label>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-6 col-lg-4">
-                                <div class="form-group">
-                                    <label for="">Nombres</label>
-                                    <input class="form-control" type="text" disabled>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-5">
-                                <div class="form-group">
-                                    <label for="">Apellidos</label>
-                                    <input class="form-control" type="text" disabled>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-sm-12 col-md-12 col-lg-6">
-                                <div class="form-group">
-                                    <label for="">Correo de la Universidad</label>
-                                    <select class="browser-default custom-select" disabled>
-                                        <option value="1" selected>20000000@aloe.ulima.edu.pe</option>
-                                    </select>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">Correo de la Universidad</label>
+                                        <select class="browser-default custom-select" disabled>
+                                            <option th:text=${correo} selected disabled></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">Correo Personal</label>
+                                       <input class="form-control" type="text" name="correoProfe"><br>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-12 col-lg-6">
-                                <div class="form-group">
-                                    <label for="">Correo Personal</label>
-                                    <input class="form-control" type="text">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="">Género</label>
+                                        <select class="browser-default custom-select" disabled>
+                                          <option th:text=${genero} selected disabled></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="">País</label>
+                                        <select class="browser-default custom-select" disabled>
+                                            <option th:text=${pais_nombre} selected disabled></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="">Carrera</label>
+                                        <select class="browser-default custom-select" disabled>
+                                             <option th:text=${carrera} selected disabled></option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-12 col-lg-4">
-                                <div class="form-group">
-                                    <label for="">Género</label>
-                                    <select class="browser-default custom-select" disabled>
-                                        <option selected disabled>Seleccione el género</option>
-                                        <option value="1">Femenino</option>
-                                        <option value="2">Masculino</option>
-                                    </select>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="">Usuario de TeamViewer</label>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="">Contraseña de TeamViewer</label>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="">Credenciales de AnyDesk</label>
+                                        <input class="form-control" type="text">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-6 col-lg-4">
-                                <div class="form-group">
-                                    <label for="">País</label>
-                                    <select class="browser-default custom-select" disabled>
-                                        <option selected disabled>Seleccione el país</option>
-                                        <option value="1">País 1</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-4">
-                                <div class="form-group">
-                                    <label for="">Carrera</label>
-                                    <select class="browser-default custom-select" disabled>
-                                        <option selected disabled>Seleccione la carrera</option>
-                                        <option value="1">Tipo1</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-6 col-lg-4">
-                                <div class="form-group">
-                                    <label for="">Usuario de TeamViewer</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-4">
-                                <div class="form-group">
-                                    <label for="">Contraseña de TeamViewer</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-12 col-lg-4">
-                                <div class="form-group">
-                                    <label for="">Credenciales de AnyDesk</label>
-                                    <input class="form-control" type="text">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-md-12 col-lg-12 d-inline text-xl-right">
-                                <a class="btn btn-primary" href="#" role="button"><i class="fa fa-check"></i> Actualizar
-                                    Datos</a>
-                            </div>
-                        </div>
 
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 d-inline text-xl-right">
+                                    <a class="btn btn-primary" href="#" role="button"><i class="fa fa-check"></i> Actualizar
+                                        Datos</a>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <div class="col-sm-12 col-md-4 col-lg-4 imagen">
-                        <img src="#" alt="Estudiante" class="perfil" width="95%" height="85%">
-                    </div>
+                     <form th:action="@{/datosAlum/}" method="POST" >
+                        <div class="col-4">
+                                <img <img th:src="@{${url}}" class="perfil" width="200" height="190">
+                            </div>
+                    </form>
 
                 </div>
             </div>

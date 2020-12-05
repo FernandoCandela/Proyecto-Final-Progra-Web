@@ -6,5 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface TeacherTypeRepositorio extends JpaRepository<TeacherType, String> {
 
     public TeacherType findByName(String name);
+    
 
 }

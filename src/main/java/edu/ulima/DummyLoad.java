@@ -333,7 +333,7 @@ public class DummyLoad implements CommandLineRunner {
         Country coun130 = repoCoun.save(new Country(130, "Ecuador"));
         Country coun131 = repoCoun.save(new Country(131, "Sri Lanka"));
         Country coun132 = repoCoun.save(new Country(132, "Tajikistan"));*/
-
+   
         //STUDENT
         Student stud1 = repoStud.save(new Student(1, 2020001, "Cherlyn Jobye", "Aarons Daubeny", "2020001@universdiad.edu.com", "jdaubenygr@is.gd", "8 997 382 563", "3OV0QC", "730 325 950", g2, c4, coun1, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));
         Student stud2 = repoStud.save(new Student(2, 2020002, "Gretel Myrlene", "Abadam Northill", "2020002@universdiad.edu.com", "mnorthill1c@cbc.ca", "8 244 659 204", "uMmEp5", "812 759 720", g2, c4, coun2, "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"));

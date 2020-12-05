@@ -30,4 +30,4 @@ public class SectionTeacher implements Serializable {
     @JoinColumn(name = "TEACHER_ID", nullable = false)
     private Teacher teacher_id;
 
-}
+    }
