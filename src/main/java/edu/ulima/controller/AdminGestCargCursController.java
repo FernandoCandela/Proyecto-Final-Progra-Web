@@ -110,6 +110,10 @@ public class AdminGestCargCursController {
         return "adminGestCursos";
     }
 
+        @RequestMapping(value = "/admin/gestionCurso/ir", method = RequestMethod.POST)
+    public String irAgregarCurso() {
+        return "redirect:/agregarCurso";
+    }
     
     /*public void userController(CourseRepositorio courseRep) {
         this.courseRep = courseRep;
