@@ -222,4 +222,14 @@ public class AdminGestCargProfeController {
 
         return "redirect:/admin/gestionProfe/";
     }
+    
+    @RequestMapping(value = "/admin/gestionProfe/seleccionar/{y}", method = RequestMethod.POST)
+    public String seleccionarClase(@PathVariable("y") String y){
+        
+        System.out.println("**************************************************");
+        System.out.println(y);
+        Integer y1 = Integer.parseInt(y);
+        System.out.println(y1);
+        return "redirect:/editarProfe/" + y;
+    }
 }

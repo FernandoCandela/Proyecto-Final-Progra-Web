@@ -82,9 +82,14 @@
                                     
                                     <td>
                                         <form class="formulario-eliminar" method="POST" th:action="@{/admin/gestionProfe/delete/{y} (y=${p.code}) }">
-                                            <a class="text-dark" href="#"><i class="fas fa-pencil-alt"></i></a>
-                                            <button type="submit"><i class="fas fa-times"></i></i></button>
+                                            <button type="submit"><i class="fas fa-times"></i></button>
                                         </form>
+                                        <form method="POST" th:action="@{/admin/gestionProfe/seleccionar/{y} (y=${p.code}) }">
+                                            <!--<a class="text-dark" href="#"><i class="fas fa-pencil-alt"></i></a>-->
+                                            <button type="submit"><i class="fas fa-pencil-alt"></i></button>
+                                        </form>
+                                            
+                                        
                                     </td>
                                 </tr>
                             </tbody>

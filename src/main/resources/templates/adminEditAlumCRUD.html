@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+              integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/estilosAlumno.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <title>Inicio</title>
+    </head>
+
+    <body>
+    <th:block th:include="headerAlumno"></th:block>
+    <div class="container fatherCard py-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <h5>Datos del Alumno</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-8 col-lg-8">
+                        <form action="/editarAlumno/seleccionar/" method="POST">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-3">
+                                    <div class="form-group">
+                                        <label>Código</label>
+                                        <label th:text=${codigo} class="form-control" type="text" name="code" minlength="5" maxlength="5" pattern="[0-9]+" ></label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label>Nombres</label>
+                                        <input class="form-control" type="text" name="names" maxlength="50" >
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-5">
+                                    <div class="form-group">
+                                        <label>Apellidos</label>
+                                        <input class="form-control" type="text" name="last_names" maxlength="50">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">Correo de la Universidad</label>
+                                        <input class="form-control" type="text" name="email" maxlength="100" >
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label>Correo Personal</label>
+                                        <input class="form-control" type="text" name="personal_email" maxlength="100" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-4">
+                                    <div class="form-group">
+                                        <label>Género</label>
+                                        <select th:text=${genero} class="browser-default custom-select" name="gender_id">
+                                            <option  value="" selected disabled>---Seleccione---</option>
+                                            <option th:each="Item : ${generos}"
+                                                    th:value="${Item.name}" 
+                                                    th:text="${Item.name}"
+                                                    th:selected="false"
+                                                    />
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label>País</label>
+                                        <select class="browser-default custom-select" name="country_id" >
+                                            <option th:text=${pais} value="" selected disabled>---Seleccione---</option>
+                                            <option th:each="Item : ${paises}"
+                                                    th:value="${Item.name}" 
+                                                    th:text="${Item.name}"
+                                                    th:selected="false"
+                                                    />
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label>Carrera</label>
+                                        <select class="browser-default custom-select" name="career_id">
+                                            <option th:text=${carrera} value="" selected disabled>---Seleccione---</option>
+                                            <option th:each="Item : ${carreras}"
+                                                    th:value="${Item.name}" 
+                                                    th:text="${Item.name}"
+                                                    th:selected="false"
+                                                    />
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label>Usuario de TeamViewer</label>
+                                        <input class="form-control" type="text" name="tw_user" maxlength="25">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label>Contraseña de TeamViewer</label>
+                                        <input class="form-control" type="text" name="tw_pass" maxlength="25">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-4">
+                                    <div class="form-group">
+                                        <label>Credenciales de AnyDesk</label>
+                                        <input class="form-control" type="text" name="ad_user" maxlength="25">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label>URL foto</label>
+                                        <input class="form-control" type="text" name="url" maxlength="100">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-xl-right">
+                                    <button class="btn btn-success" type="submit"><i class="fa fa-check"></i>  Actualizar Datos</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-4">
+                        <img th:src="@{/img/usuario.png}" class="perfil" width="200" height="190">
+                    </div><!--
+                 <form th:action="@{/datosAlum/}" method="POST" >
+                    <div class="col-4">
+                            <img <img th:src="@{${url}}" class="perfil" width="200" height="190">
+                        </div>
+                </form>-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <th:block th:include="footer"></th:block>
+    <th:block th:include="bootstrapScripts"></th:block>
+</body>

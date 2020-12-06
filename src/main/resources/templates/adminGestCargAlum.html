@@ -81,7 +81,10 @@
                                    <td><span th:utext="${p.garden_name}"></span></td>
                                   
                                     <td>
-                                        <a class="text-dark" href="#"><i class="fas fa-pencil-alt"></i></a>
+                                        <form method="POST" th:action="@{/admin/gestionAlum/seleccionar/{y} (y=${p.code}) }">
+                                            <!--<a class="text-dark" href="#"><i class="fas fa-pencil-alt"></i></a>-->
+                                            <button type="submit"><i class="fas fa-pencil-alt"></i></button>
+                                        </form>
                                         <button type="submit"><i class="fas fa-times"></i></i></button>
                             </tbody>
                         </table>

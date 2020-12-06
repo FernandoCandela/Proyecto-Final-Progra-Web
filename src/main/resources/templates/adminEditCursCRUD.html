@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;400;700&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/7dbf90a20f.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/estilosAlumno.css">
+        <title>Editar Curso</title>
+    </head>
+
+    <body>
+    <th:block th:include="header"></th:block>
+    <div class="container py-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <h5>EditarNuevo Curso</h5>
+                    </div>
+                </div>
+                <form action="/editarCurso/"  method="POST">
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label for="">Código</label> <br>
+                                <label th:text=${codigo} class="form-control" type="text" name="code" minlength="3" maxlength="3" pattern="[0-9]+" ></label>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label for="">Nombre</label> <br>
+                                <input class="form-control" type="text" name="name" maxlength="25">
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label for="">Carrera</label> <br>
+                                <select class="browser-default custom-select" name="career">
+                                    <option value="" selected disabled>---Seleccione---</option>
+                                    <option th:each="Item : ${carreras}"
+                                            th:value="${Item.name}" 
+                                            th:text="${Item.name}"
+                                            th:selected="false"
+                                            />
+                                </select><br>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <br>
+                            <button class="btn btn-primary"><i class="fas fa-check"></i>  Actualizar Datos</button>
+                        </div>
+                    </div>
+                </form>
+            </div>      
+        </div>
+
+
+    </div>
+    <th:block th:include="footer"></th:block>
+    <th:block th:include="bootstrapScripts"></th:block>
+</body>
