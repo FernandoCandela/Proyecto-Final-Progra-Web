@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,6 +16,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 //@RequestMapping("/admin/gestionCurso")
@@ -110,6 +112,39 @@ public class AdminGestCargCursController {
     @RequestMapping(value = "/admin/gestionCurso/ir", method = RequestMethod.POST)
     public String irAgregarCurso() {
         return "redirect:/agregarCurso";
+    }
+    
+    @RequestMapping(value = "/admin/gestionCurso/delete/{y}", method = RequestMethod.POST)
+    public String borrar(@PathVariable("y") String y) {
+        /*System.out.println("**************************");
+        System.out.println(y);
+        Integer y1 = Integer.parseInt(y);*/
+
+        try {
+            //interceptor.invoke(invocation);
+            System.out.println("**************************");
+            System.out.println(y);
+            Integer y1 = Integer.parseInt(y);
+            courseRep.deleteByCode(y1);
+        } catch (DataIntegrityViolationException ex) {
+            // expected
+            System.out.println("NO PUEDE SER");
+            return "error_borrar";
+        }
+
+        //teaRep.deleteByCode(y1);
+
+        return "redirect:/admin/gestionCurso/";
+    }
+    
+    @RequestMapping(value = "/admin/gestionCurso/seleccionar/{y}", method = RequestMethod.POST)
+    public String seleccionarClase(@PathVariable("y") String y){
+        
+        System.out.println("**************************************************");
+        System.out.println(y);
+        Integer y1 = Integer.parseInt(y);
+        System.out.println(y1);
+        return "redirect:/editarCurso/" + y;
     }
 
     /*public void userController(CourseRepositorio courseRep) {

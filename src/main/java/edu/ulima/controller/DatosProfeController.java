@@ -85,7 +85,7 @@ public class DatosProfeController {
         System.out.println(user);
         Teacher Profe = teacherRep.findByCodeOrIde(Integer.parseInt(user), null);
         System.out.println(Profe);
-        Profe.setEmail(correo);
+        Profe.setPersonal_email(correo);
         System.out.println(Profe.getEmail());
         teacherRep.save(Profe);
 
