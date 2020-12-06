@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/estilosAlumno.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Inicio</title>
+</head>
+
+<body id="inicio">
+    <th:block th:include="headerInicio"></th:block>
+    <div class="py-5">
+        <h1 class="text-center"><b>¡Bienvenido!</b></h1>
+        <img src="/img/university.png" id="fondo"></img>
+        <div class="row py-5" id="admin">
+            <div class="col-4">
+                <a th:href="@{/login/admin}" class="text-center">
+                    Administrador
+                </a>
+            </div>
+            <div class="col-4">
+                <a th:href="@{/login/teacher}" class="text-center">
+                    Profesor
+                </a>
+            </div>
+            <div class="col-4">
+                <a th:href="@{/login/student}" class="text-center">
+                    Alumno
+                </a>
+            </div>
+        </div>
+    </div>
+    <th:block th:include="footer"></th:block>
+    <th:block th:include="bootstrapScripts"></th:block>
+</body>

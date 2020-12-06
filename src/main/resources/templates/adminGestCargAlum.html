@@ -77,8 +77,10 @@
                                    <td><span th:utext="${p.garden_name}"></span></td>
                                   
                                     <td>
-                                        <a class="text-dark" href="#"><i class="fas fa-pencil-alt"></i></a>
-                                        <button type="submit"><i class="fas fa-times"></i></i></button>
+                                        <form class="formulario-eliminar" method="POST" th:action="@{/admin/gestionAlum/delete/{y} (y=${p.code}) }">
+                                            <a class="text-dark" href="#"><i class="fas fa-pencil-alt"></i></a>
+                                            <button type="submit"><i class="fas fa-times"></i></i></button>
+                                        </form>
                             </tbody>
                         </table>
                         <!--</td>
@@ -104,7 +106,9 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <button class="btn btn-primary "><i class="fas fa-plus"></i>  Agregar Alumno</button>        
+                        <form method="POST" action="/admin/gestionAlum/ir" >
+                        <button class="btn btn-primary "><i class="fas fa-plus"></i>  Agregar Alumno</button>
+                        </form>
                     </div>
                 </div>
             </div>

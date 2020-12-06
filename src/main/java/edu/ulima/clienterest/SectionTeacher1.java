@@ -9,5 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SectionTeacher1 {
+    private Integer section_id;
     private Integer teacher_id;
 }

@@ -13,6 +13,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -185,6 +186,20 @@ public class AdminGestCargAlumController {
 
         //return st1;
         return "adminGestCargAlum";
+    }
+    
+    @RequestMapping(value = "/admin/gestionAlum/ir", method = RequestMethod.POST)
+    public String irAgegarProfe() {
+        return "redirect:/agregarAlumno";
+    }
+    
+    @RequestMapping(value = "/admin/gestionAlum/delete/{y}", method = RequestMethod.POST)
+    public String borrar(@PathVariable("y") String y) {
+        System.out.println("**************************");
+        System.out.println(y);
+        Integer y1 = Integer.parseInt(y);
+        stdRep.deleteByCode(y1);
+        return "redirect:/admin/gestionProfe/";
     }
 
 }

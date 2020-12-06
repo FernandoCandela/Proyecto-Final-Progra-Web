@@ -11,14 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping("/login")
 public class UserAdminLogCont {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String home() {
         return "loginAdmin";
     }
 
-    @RequestMapping(value = "/login/admin", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin", method = RequestMethod.POST)
     public String login(
             HttpServletRequest req,
             @RequestParam("user") String user,
