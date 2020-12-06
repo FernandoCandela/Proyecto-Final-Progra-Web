@@ -35,7 +35,7 @@ public class DemoController {
     public String inicioAdmin() {
         return "inicioAdmin";
     }
-
+/*
     @RequestMapping(value = "/seccionesProfe")
     public String seccionesProfe(Model model, HttpServletRequest req) {
         String user = String.valueOf(req.getSession().getAttribute("user"));
@@ -52,9 +52,9 @@ public class DemoController {
          
 
         model.addAttribute("secciones", secciones);
-*/
+*//*
         return "profeVerSeccion";
-    }
+    }*/
 
     /*@RequestMapping(value = "/admin/gestionProfe")
     public String adminGestionProf() {

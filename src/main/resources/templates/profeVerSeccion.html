@@ -50,23 +50,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>2020001</td>
-                                    <td>Matemáticas</td>
-                                    <td>2020001</td>
-                                    <td>Estudios Generales</td>
-                                    <td>2020-1</td>
-                                    <td>
-                                        <a class="text-dark" href="#"><i class="fas fa-sync-alt"></i></a>
-                                        <!--<button type="submit"><i class="fas fa-pencil-alt"></i></button> -->
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2020001</td>
-                                    <td>Matemáticas</td>
-                                    <td>2020001</td>
-                                    <td>Estudios Generales</td>
-                                    <td>2020-1</td>
+                                 <tr th:each="p : ${paginationVerSec}">
+                                    <td><span th:utext="${p.code}"></span></td>
+                                    <td><span th:utext="${p.names} + ' ' + ${p.last_names}"></span></td>
+                                    <td><span th:utext="${p.ad_user}"></span></td>
+                                   <td><span th:utext="${p.tw_user}"></span></td>
+                                    <td><span th:utext="${p.tw_pass}"></span></td>
                                     <td>
                                         <a class="text-dark" href="#"><i class="fas fa-sync-alt"></i></a>
                                     </td>
@@ -77,7 +66,17 @@
                 </div>      
             </div>
 
+            <div class="page-navigator" th:if="${totalPages > 1}">
+                    <th:block th:each="pag : ${navigationPages}">
+                        <a class="nav-item" 
+                           th:href="@{|/seccionesProfe?page=${pag}|}" 
+                           th:if="${pag != -1}" th:utext="${pag}">
+                        </a>
 
+                        <span class="nav-item" th:if="${pag == -1}"> ... </span>
+
+                    </th:block>
+                </div>
         </div>
         <th:block th:include="footer"></th:block>
         <th:block th:include="bootstrapScripts"></th:block>
