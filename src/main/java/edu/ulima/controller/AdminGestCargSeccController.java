@@ -13,6 +13,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -136,6 +137,11 @@ public class AdminGestCargSeccController {
         model.addAttribute("navigationPages", navigationPages);
 
         return "adminGestSecc";
+    }
+    
+    @RequestMapping(value = "/admin/gestionSec/ir", method = RequestMethod.POST)
+    public String irAgegarSec() {
+        return "redirect:/agregarSeccion";
     }
 
 }
