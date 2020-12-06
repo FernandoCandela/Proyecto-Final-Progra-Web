@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -167,38 +168,58 @@ public class AdminGestCargAlumController {
         List<Student1> st1 = new ArrayList<>();
         for (Student s : students) {
 
-                Student1 s1 = new Student1(s.getCode(), s.getNames(), s.getLast_names(), " ", " ");
-                Gender ide_ge = s.getGender_id();
-                System.out.println("#################################################");
-                System.out.println(ide_ge.getName());
-                System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-                s1.setGarden_name(ide_ge.getName());
+            Student1 s1 = new Student1(s.getCode(), s.getNames(), s.getLast_names(), " ", " ");
+            Gender ide_ge = s.getGender_id();
+            System.out.println("#################################################");
+            System.out.println(ide_ge.getName());
+            System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+            s1.setGarden_name(ide_ge.getName());
 
-                Career ide_ca = s.getCareer_id();
-                s1.setCarrer_name(ide_ca.getName());
+            Career ide_ca = s.getCareer_id();
+            s1.setCarrer_name(ide_ca.getName());
 
-                st1.add(s1);
-                System.out.println("******************************************************************");
-                System.out.println(st1);
-                model.addAttribute("paginationAlumn", st1);
-            }
+            st1.add(s1);
+            System.out.println("******************************************************************");
+            System.out.println(st1);
+            model.addAttribute("paginationAlumn", st1);
+        }
         System.out.println("********************************************");
 
         //return st1;
         return "adminGestCargAlum";
     }
-    
+
     @RequestMapping(value = "/admin/gestionAlum/ir", method = RequestMethod.POST)
     public String irAgegarProfe() {
         return "redirect:/agregarAlumno";
     }
     
+    
+    @RequestMapping(value = "/admin/gestionAlum/error", method = RequestMethod.POST)
+    public String ir() {
+        return "redirect:/admin/gestionAlum";
+    }
+
     @RequestMapping(value = "/admin/gestionAlum/delete/{y}", method = RequestMethod.POST)
+    
     public String borrar(@PathVariable("y") String y) {
-        System.out.println("**************************");
+        /*System.out.println("**************************");
         System.out.println(y);
-        Integer y1 = Integer.parseInt(y);
-        stdRep.deleteByCode(y1);
+        Integer y1 = Integer.parseInt(y);*/
+
+        try {
+            //interceptor.invoke(invocation);
+            System.out.println("**************************");
+            System.out.println(y);
+            Integer y1 = Integer.parseInt(y);
+            stdRep.deleteByCode(y1);
+        } catch (DataIntegrityViolationException ex) {
+            // expected
+            System.out.println("NO PUEDE SER");
+            return "error_borrar_1";
+        }
+
+        //teaRep.deleteByCode(y1);
         return "redirect:/admin/gestionProfe/";
     }
 

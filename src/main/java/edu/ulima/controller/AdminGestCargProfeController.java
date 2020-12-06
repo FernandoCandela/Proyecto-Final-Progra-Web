@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -192,14 +193,33 @@ public class AdminGestCargProfeController {
     public String irAgegarProfe() {
         return "redirect:/agregarProfesor";
     }
+    
+    
+    @RequestMapping(value = "/admin/gestionProfe/error", method = RequestMethod.POST)
+    public String ir() {
+        return "redirect:/admin/gestionProfe";
+    }
 
     @RequestMapping(value = "/admin/gestionProfe/delete/{y}", method = RequestMethod.POST)
     public String borrar(@PathVariable("y") String y) {
-     
-        System.out.println("**************************");
+        /*System.out.println("**************************");
         System.out.println(y);
-        Integer y1 = Integer.parseInt(y);
-        teaRep.deleteByCode(y1);
+        Integer y1 = Integer.parseInt(y);*/
+
+        try {
+            //interceptor.invoke(invocation);
+            System.out.println("**************************");
+            System.out.println(y);
+            Integer y1 = Integer.parseInt(y);
+            teaRep.deleteByCode(y1);
+        } catch (DataIntegrityViolationException ex) {
+            // expected
+            System.out.println("NO PUEDE SER");
+            return "error_borrar";
+        }
+
+        //teaRep.deleteByCode(y1);
+
         return "redirect:/admin/gestionProfe/";
     }
 }
