@@ -25,20 +25,20 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="">Código</label> <br>
-                                <input class="form-control" type="text" name="code">
+                                <input class="form-control" type="text" name="code" minlength="3" maxlength="3" pattern="[0-9]+" required>
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="">Nombre</label> <br>
-                                <input class="form-control" type="text" name="name">
+                                <input class="form-control" type="text" name="name" maxlength="25" required>
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="">Carrera</label> <br>
-                                <select class="browser-default custom-select" name="career">
-                                    <option selected></option>
+                                <select class="browser-default custom-select" name="career" required>
+                                    <option value="" selected disabled>---Seleccione---</option>
                                     <option th:each="Item : ${carreras}"
                                             th:value="${Item.name}" 
                                             th:text="${Item.name}"

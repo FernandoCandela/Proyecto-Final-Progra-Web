@@ -195,6 +195,7 @@ public class AdminGestCargProfeController {
 
     @RequestMapping(value = "/admin/gestionProfe/delete/{y}", method = RequestMethod.POST)
     public String borrar(@PathVariable("y") String y) {
+     
         System.out.println("**************************");
         System.out.println(y);
         Integer y1 = Integer.parseInt(y);
