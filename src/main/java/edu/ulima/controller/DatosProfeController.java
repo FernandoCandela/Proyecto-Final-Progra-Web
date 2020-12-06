@@ -90,6 +90,7 @@ public class DatosProfeController {
         teacherRep.save(Profe);
 
         System.out.println("************************");
-        return "inicioProfesor";
+        return "redirect:/inicioProfe/";
+
     }
 }
