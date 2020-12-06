@@ -26,11 +26,11 @@ public class Section implements Serializable {
     private Integer code;
 
     @ManyToOne
-    @JoinColumn(name = "COURSE_ID",nullable = false)
+    @JoinColumn(name = "COURSE_ID")
     private Course course_id;
 
     @ManyToOne
-    @JoinColumn(name = "PERIOD_ID",nullable = false)
+    @JoinColumn(name = "PERIOD_ID")
     private Period period_id;
 
 }

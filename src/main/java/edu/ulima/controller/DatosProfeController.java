@@ -31,7 +31,7 @@ public class DatosProfeController {
         String teacher_id = String.valueOf(req.getSession().getAttribute("teacher_id"));
 
         model.addAttribute("user", user);
-        Teacher Profe = teacherRep.findByCodeOrId(Integer.parseInt(user), null);
+        Teacher Profe = teacherRep.findByCodeOrIde(Integer.parseInt(user), null);
         System.out.println(Profe);
         
         System.out.println("******************");
@@ -52,7 +52,7 @@ public class DatosProfeController {
         model.addAttribute("correoPersonal", correoPersonal);
         
         
-        Integer ide = Profe.getId();
+        Integer ide = Profe.getIde();
         model.addAttribute("ide", ide);
         //System.out.println(ide);
         
@@ -81,7 +81,7 @@ public class DatosProfeController {
         String user = String.valueOf(req.getSession().getAttribute("user"));
         String teacher_id = String.valueOf(req.getSession().getAttribute("teacher_id"));
         System.out.println(user);
-        Teacher Profe = teacherRep.findByCodeOrId(Integer.parseInt(user), null);
+        Teacher Profe = teacherRep.findByCodeOrIde(Integer.parseInt(user), null);
         System.out.println(Profe);
         Profe.setEmail(correo);
         System.out.println(Profe.getEmail());

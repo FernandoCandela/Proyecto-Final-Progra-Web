@@ -1,4 +1,5 @@
 package edu.ulima.controller;
+
 import edu.ulima.entidad.*;
 import edu.ulima.persistencia.*;
 import edu.ulima.clienterest.*;
@@ -15,14 +16,20 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-    
+
 @Controller
 //@RequestMapping("/admin/gestionSeccion")
 public class AdminGestCargSeccController {
+
     @Autowired
     private SectionRepositorio sectionRep;
+
+    @Autowired
     private SectionTeacherRepositorio sctRep;
-    
+
+    @Autowired
+    private TeacherRepositorio teaRep;
+
     @RequestMapping({"/admin/gestionSeccion"})
     public String sectionInicio(Model model,
             @RequestParam(value = "page", defaultValue = "1") int page) {
@@ -44,7 +51,7 @@ public class AdminGestCargSeccController {
             totalPages = (totalRecords / maxResult) + 1;
         }
 
-        int currentPage = pageIndex + 1; 
+        int currentPage = pageIndex + 1;
 
         List<Integer> navigationPages = new ArrayList<>();
         int current = currentPage > totalPages ? totalPages : currentPage;
@@ -84,34 +91,42 @@ public class AdminGestCargSeccController {
 
         // Convertir la lista de Entidad a Modelo
         List<Section1> ltmp = new ArrayList<>();
-        
+
         for (Section sc : result0) {
 
-            Section1 sc1 = new Section1(sc.getCode(), " ", 1 , " ", " ", " ");
-            
-            Course ide_co=sc.getCourse_id();
-            System.out.println("#################################################");
+            Section1 sc1 = new Section1();
+
+            Course ide_co = sc.getCourse_id();
             sc1.setCourse_name(ide_co.getName());
             sc1.setCourse_code(ide_co.getCode());
-     
+
             Career ide_ca = ide_co.getCareer_id();
             sc1.setCarrer_name(ide_ca.getName());
-           
-            Period ide_pe= sc.getPeriod_id();
+
+            Period ide_pe = sc.getPeriod_id();
             sc1.setPeriod_name(ide_pe.getName());
-            
-            System.out.println("////////////////////////////////////////////////////////////////");
-            Integer id_seccion= sc.getId();
+            Integer id_seccion = sc.getId();
             System.out.println(id_seccion);
-            //SectionTeacher sctea = sctRep.findBySection_id(id_seccion);     
-            //System.out.println(sctea);
-            
-            
-           
-        
-            ltmp.add(sc1);
-            System.out.println("******************************************************************");
-            System.out.println(ltmp);
+
+            System.out.println("************************aki******************************************");
+            /*
+            SectionTeacher sctea = sctRep.findBySection_id(sc);
+
+            if (sctea != null) {
+                Systm.out.println(sctea);
+
+                Teacher te1 = sctea.getTeacher_id();
+
+
+                sc1.setTeacher_name(te1.getNames());
+                System.out.println(te1.getNames());
+
+                ltmp.add(sc1);
+                System.out.println(sc1);
+                System.out.println("******************************************************************");
+                System.out.println(ltmp);
+            }
+*/
         }
 
         // Generar una pagina
@@ -124,5 +139,5 @@ public class AdminGestCargSeccController {
 
         return "adminGestSecc";
     }
-    
+
 }

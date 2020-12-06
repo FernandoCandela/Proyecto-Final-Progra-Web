@@ -47,9 +47,9 @@ public class GestProfeCRUDController {
         System.out.println("*************CREACION DE PROFESOR*************");
         System.out.println(teacherForm);
         List<Teacher> profesores = teaRep.findAll();
-        Integer id = profesores.get(profesores.size() - 1).getId();
+        Integer id = profesores.get(profesores.size() - 1).getIde();
         Teacher teacher = new Teacher();
-        teacher.setId(id + 1);
+        teacher.setIde(id + 1);
         teacher.setCode(Integer.parseInt(teacherForm.getCode()));
         teacher.setNames(teacherForm.getNames());
         teacher.setLast_names(teacherForm.getLast_names());
