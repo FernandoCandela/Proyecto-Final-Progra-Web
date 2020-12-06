@@ -31,8 +31,6 @@ public class UserStudentLogCont {
 
     @RequestMapping(value = "/student", method = RequestMethod.GET)
     public String home(Model model) {
-        //model.addAttribute("StudentFormulario", new StudentFormulario());
-        //holi
         return "loginAlumno";
     }
 

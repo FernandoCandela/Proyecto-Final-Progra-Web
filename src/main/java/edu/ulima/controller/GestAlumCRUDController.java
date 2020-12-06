@@ -33,7 +33,7 @@ public class GestAlumCRUDController {
 
     @Autowired
     private TeacherTypeRepositorio teaTyRep;
-    
+
     @Autowired
     private CareerRepositorio carRep;
 
@@ -45,9 +45,9 @@ public class GestAlumCRUDController {
 
         List<Country> paises = contRep.findAll();
         model.addAttribute("paises", paises);
-        
+
         List<Career> carreras = carRep.findAll();
-        model.addAttribute("carrera", carreras);
+        model.addAttribute("carreras", carreras);
 
         return "adminGestAlumCRUD";
     }
@@ -65,15 +65,18 @@ public class GestAlumCRUDController {
         student.setLast_names(studentForm.getLast_names());
         student.setEmail(studentForm.getEmail());
         student.setPersonal_email(studentForm.getPersonal_email());
+        student.setTw_user(studentForm.getTw_user());
+        student.setTw_pass(studentForm.getTw_pass());
+        student.setAd_user(studentForm.getAd_user());
         student.setGender_id(genRep.findByName(studentForm.getGender_id()));
         student.setCareer_id(carRep.findByName(studentForm.getCareer_id()));
         student.setCountry_id(contRep.findByName(studentForm.getCountry_id()));
-        //teacher.setPhoto_url(teacherForm.getPhoto_url());
-        student.setPhoto_url("UN-URL");
+        student.setPhoto_url(studentForm.getPhoto_url());
+
         stdRep.saveAndFlush(student);
 
         return "redirect:/admin/gestionAlum";
 
     }
-   
+
 }

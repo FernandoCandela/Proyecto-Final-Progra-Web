@@ -24,7 +24,6 @@ public class UserTeacherLogCont {
 
     @RequestMapping(value = "/teacher", method = RequestMethod.GET)
     public String home(Model model) {
-        //model.addAttribute("StudentFormulario", new StudentFormulario());
         return "loginProfe";
     }
 

@@ -18,7 +18,7 @@
                 <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
                 <p id="profile-name" class="profile-name-card"></p>
                 <form class="form-signin" method="POST"
-                      th:action="@{/login/student}" th:object="${StudentFormulario}">
+                      th:action="@{/login/student}" >
                     <span id="reauth-email" class="reauth-email"></span>
                     <input type="text"  name="user" id="inputEmail" class="form-control" placeholder="Usuario" required autofocus>
                     <input type="password"  name="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
