@@ -28,24 +28,28 @@
                 </div>
                 
                 <div class="row">
-                    <form action="/admin/gestionAlum/" method="POST"> 
-                        <div class="col-2">
-                            <div class="form-group">
-                                <label for="">Código</label> <br>
-                                <input class="form-control" type="text" name="codAlumno"><br>
+                    <div class="col-7"> 
+                        <form action="/admin/gestionAlum/" method="POST">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label for="">Código</label> <br>
+                                        <input class="form-control" type="text" name="codAlumno"  pattern="[0-9]+"><br>
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <div class="form-group">
+                                        <label for="">Nombre</label> <br>
+                                        <input class="form-control" type="text" name="nomAlumno"><br>
+                                    </div>
+                                </div>
+                                <div class="col-3">                 
+                                    <br>
+                                    <button class="btn btn-success"><i class="fas fa-search"></i>  Buscar</button>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="form-group">
-                                <label for="">Nombre</label> <br>
-                                <input class="form-control" type="text" name="nomAlumno"><br>
-                            </div>
-                        </div>
-                        <div class="col-2">                 
-                            <br>
-                            <button class="btn btn-success"><i class="fas fa-search"></i>  Buscar</button>
-                        </div>
-                         </form>
+                        </form>
+                    </div>
                         <div class="col-3">
                             <h7>Carga masiva</h7>
                             <span class="btn btn-primary btn-file">

@@ -6,10 +6,13 @@ import edu.ulima.entidad.Career;
 import edu.ulima.entidad.Gender;
 import edu.ulima.entidad.Section;
 import edu.ulima.entidad.Student;
+import edu.ulima.entidad.Teacher;
 import edu.ulima.persistencia.CareerRepositorio;
 import edu.ulima.persistencia.GenderRepositorio;
 import edu.ulima.persistencia.SectionRepositorio;
 import edu.ulima.persistencia.StudentRepositorio;
+import edu.ulima.persistencia.TeacherRepositorio;
+import static java.lang.Integer.parseInt;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -39,6 +42,9 @@ public class ProfeVerSec {
 
     @Autowired
     private SectionRepositorio secRep;
+    
+    @Autowired
+    private TeacherRepositorio tRep;
 
     @RequestMapping({"/seccionesProfe"})
     public String verSeccion(Model model,HttpServletRequest req,
@@ -46,6 +52,15 @@ public class ProfeVerSec {
 
         String user = String.valueOf(req.getSession().getAttribute("user"));
         String teacher_id = String.valueOf(req.getSession().getAttribute("teacher_id"));
+        
+        List<Teacher> teachers = tRep.findByCode(parseInt(user));
+        
+        for(int i=0; i<teachers.size(); i++){
+            Teacher te = teachers.get(i); 
+            String nombresT = te.getNames() + " " + te.getLast_names();
+            model.addAttribute("nombresT", nombresT);
+            System.out.println("Nombre es "+nombresT);
+        }
 
         List<Section> secciones = secRep.findAll();
 
