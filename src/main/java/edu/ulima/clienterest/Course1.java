@@ -1,15 +1,10 @@
-
 package edu.ulima.clienterest;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-
 @Data
 @NoArgsConstructor
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Course1 {
 
     private Integer code;
@@ -33,15 +28,15 @@ public class Course1 {
     public void setCarrer_name(String carrer_name) {
         this.carrer_name = carrer_name;
     }
-    
-    
-    
-     public Integer getCode() {
+
+    public Integer getCode() {
         return code;
     }
+
     public String getName() {
         return name;
     }
+
     public String getCarrer_name() {
         return carrer_name;
     }

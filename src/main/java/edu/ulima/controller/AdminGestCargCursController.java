@@ -1,12 +1,10 @@
 package edu.ulima.controller;
+
 import edu.ulima.entidad.*;
 import edu.ulima.persistencia.*;
 import edu.ulima.clienterest.*;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,17 +15,18 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
-    
+
 @Controller
 //@RequestMapping("/admin/gestionCurso")
 public class AdminGestCargCursController {
+
     @Autowired
     private CourseRepositorio courseRep;
-    
+
     @RequestMapping({"/admin/gestionCurso"})
     public String gestionCurso(Model model,
-            @RequestParam(value="page", defaultValue="1")  int page) {
-        
+            @RequestParam(value = "page", defaultValue = "1") int page) {
+
         // -------------- Inicio algoritmos de paginacion
         final int maxResult = 2; // Cantidad de resultados por pagina
         final int maxNavigationPage = 10; // cantidad maxima de paginas
@@ -62,7 +61,7 @@ public class AdminGestCargCursController {
         // Llenar un arreglo con los numero de paginas
         for (int i = begin; i < end; i++) {
             if (i > 1 && i < totalPages) {
-                System.out.println("En navigationPages.add " + i );
+                System.out.println("En navigationPages.add " + i);
                 navigationPages.add(i);
             }
         }
@@ -73,23 +72,22 @@ public class AdminGestCargCursController {
 
         navigationPages.add(totalPages);
         // -------------- Fin algoritmos de paginacion
-        
+
         /*
         Ir a la base de datos pero ..a buscar una pagina de datos
-        */
+         */
         Pageable pagina = PageRequest.of(pageIndex, maxResult);
         // Invocar al repositorio para que retorne la pagina indicada
         Page<Course> result0 = courseRep.findAll(pagina);
-        
+
         // Convertir la lista de Entidad a Modelo
-        
-        List<Course1> ltmp = new ArrayList<>(); 
-        
+        List<Course1> ltmp = new ArrayList<>();
+
         for (Course c : result0) {
-  
-            Course1 c1 = new Course1(c.getCode(), c.getName()," ");
-            
-            System.out.println("#################################################");  
+
+            Course1 c1 = new Course1(c.getCode(), c.getName(), " ");
+
+            System.out.println("#################################################");
             Career ide_ca = c.getCareer_id();
             c1.setCarrer_name(ide_ca.getName());
 
@@ -97,28 +95,27 @@ public class AdminGestCargCursController {
             System.out.println("******************************************************************");
             System.out.println(ltmp);
         }
-        
-        
+
         // Generar una pagina
         Page<Course1> result = new PageImpl(ltmp);
-        
+
         // POner todo en el modelo
         model.addAttribute("paginationCourses", result);
         model.addAttribute("totalPages", totalPages);
         model.addAttribute("navigationPages", navigationPages);
-        
+
         return "adminGestCursos";
     }
 
-        @RequestMapping(value = "/admin/gestionCurso/ir", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/gestionCurso/ir", method = RequestMethod.POST)
     public String irAgregarCurso() {
         return "redirect:/agregarCurso";
     }
-    
+
     /*public void userController(CourseRepositorio courseRep) {
         this.courseRep = courseRep;
     }*/
-    /*
+ /*
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String courseInicio(Model model, HttpServletRequest req) {
         List<Course> cursos = courseRep.findAll();
@@ -147,7 +144,5 @@ public class AdminGestCargCursController {
         //return st1;
         return "adminGestCursos2";
     }
-    */
-    
-   
+     */
 }

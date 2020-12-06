@@ -1,19 +1,17 @@
 package edu.ulima.clienterest;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 //@Data
 //@NoArgsConstructor
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Teacher1 {
 
     private Integer code;
     private String names;
     private String last_names;
     private String gender_name;
-    private String teacher_type;    
+    private String teacher_type;
 
     public Teacher1(Integer code, String names, String last_names, String gender_name, String teacher_type) {
         this.code = code;
@@ -42,8 +40,6 @@ public class Teacher1 {
     public void setTeacher_type(String teacher_type) {
         this.teacher_type = teacher_type;
     }
-    
-    
 
     public Integer getCode() {
         return code;
@@ -64,9 +60,5 @@ public class Teacher1 {
     public String getTeacher_type() {
         return teacher_type;
     }
-    
-    
-    
-    
-    
+
 }

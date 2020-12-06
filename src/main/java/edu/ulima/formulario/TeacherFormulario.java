@@ -13,5 +13,5 @@ public class TeacherFormulario implements Serializable {
     private String gender_id;
     private String country_id;
     private String teacher_type_id;
-   // private String photo_url;
+    private String photo_url;
 }

@@ -1,11 +1,7 @@
-
 package edu.ulima.clienterest;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-
 
 @Data
 @NoArgsConstructor
@@ -18,10 +14,4 @@ public class Section1 {
     private String period_name;
     private String teacher_name;
 
-   
-    
-    
-    
-    
-    
 }

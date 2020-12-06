@@ -58,8 +58,7 @@ public class GestProfeCRUDController {
         teacher.setGender_id(genRep.findByName(teacherForm.getGender_id()));
         teacher.setCountry_id(contRep.findByName(teacherForm.getCountry_id()));
         teacher.setTeacher_type_id(teaTyRep.findByName(teacherForm.getTeacher_type_id()));
-        //teacher.setPhoto_url(teacherForm.getPhoto_url());
-        teacher.setPhoto_url("UN-URL");
+        teacher.setPhoto_url(teacherForm.getPhoto_url());
         teaRep.saveAndFlush(teacher);
 
         return "redirect:/admin/gestionProfe";

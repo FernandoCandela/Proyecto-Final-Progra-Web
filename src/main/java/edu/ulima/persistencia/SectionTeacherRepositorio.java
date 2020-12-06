@@ -9,6 +9,6 @@ public interface SectionTeacherRepositorio extends JpaRepository<SectionTeacher,
     public SectionTeacher findByIde(Integer ide);
     
     //@Query("SELECT t FROM TSECTIONTEACHER WHERE t.SECTION_ID = ?1")
-    //public List<SectionTeacher> findBySection_id(Section section_id);
+    //public SectionTeacher findBySection_id(Section section_id);
 
 }
