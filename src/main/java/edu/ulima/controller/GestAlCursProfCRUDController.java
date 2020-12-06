@@ -165,7 +165,7 @@ public class GestAlCursProfCRUDController {
         Period pe = periodos.get(periodos.size() - 1);
 
         List<Section> sections = secRep.findAll();
-        Integer id = sections.get(sections.size() - 1).getId();
+        Integer id = sections.get(sections.size() - 1).getIde();
 
         Course curso = courRep.findByName(course);
 

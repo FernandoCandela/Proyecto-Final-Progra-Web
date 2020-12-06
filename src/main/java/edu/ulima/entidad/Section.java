@@ -20,7 +20,7 @@ public class Section implements Serializable {
 
     @Id
     @Column(name = "ID", nullable = false)
-    private Integer id;
+    private Integer ide;
 
     @Column(name = "CODE", nullable = false)
     private Integer code;

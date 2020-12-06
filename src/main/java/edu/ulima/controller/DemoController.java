@@ -2,7 +2,8 @@ package edu.ulima.controller;
 
 import java.util.List;
 import edu.ulima.entidad.*;
-import edu.ulima.persistencia.SectionRepositorio;
+import edu.ulima.persistencia.*;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,12 @@ public class DemoController {
 
     @Autowired
     private SectionRepositorio secRep;
+    
+    @Autowired
+    private SectionTeacherRepositorio secteRep;
+    
+     @Autowired
+    private TeacherRepositorio teaRep;
 
     /*@RequestMapping(value = "/admin/gestionAlum")
     public String adminGestionAl() {
@@ -31,10 +38,21 @@ public class DemoController {
 
     @RequestMapping(value = "/seccionesProfe")
     public String seccionesProfe(Model model, HttpServletRequest req) {
-        List<Section> secciones = secRep.findAll();
+        String user = String.valueOf(req.getSession().getAttribute("user"));
+        String teacher_id = String.valueOf(req.getSession().getAttribute("teacher_id"));
+ /*     
+        Teacher tea = teaRep.findByIde(Integer.parseInt(teacher_id));
+        List<SectionTeacher> scT = secteRep.findByTeacher_id(tea);
+        List<Section> secciones = new ArrayList<>();
+        
+        for (int i = 0; i < scT.size(); i++) {
+            Section sec= secRep.findByIde(scT.get(i).getIde());
+            secciones.add(sec);
+        }
+         
 
         model.addAttribute("secciones", secciones);
-
+*/
         return "profeVerSeccion";
     }
 

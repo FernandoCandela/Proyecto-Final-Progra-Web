@@ -104,7 +104,7 @@ public class AdminGestCargSeccController {
 
             Period ide_pe = sc.getPeriod_id();
             sc1.setPeriod_name(ide_pe.getName());
-            Integer id_seccion = sc.getId();
+            Integer id_seccion = sc.getIde();
             System.out.println(id_seccion);
 
             System.out.println("************************aki******************************************");
