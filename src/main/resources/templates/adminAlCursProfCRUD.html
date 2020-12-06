@@ -26,13 +26,13 @@
                                 <div class="col-5">
                                     <div class="form-group">
                                         <label for="">Código</label> <br>
-                                        <input class="form-control" type="text" name="code"><br>
+                                        <input class="form-control" type="text" name="code" required><br>
                                     </div>
                                 </div>
                                 <div class="col-7">
                                     <div class="form-group">
                                         <label for="">Curso</label> <br>
-                                        <select class="browser-default custom-select" name="course">
+                                        <select class="browser-default custom-select" name="course" required>
                                             <option selected></option>
                                             <option th:each="Item : ${cursos}"
                                                     th:value="${Item.name}" 
@@ -53,7 +53,7 @@
                                 <div class="col-7">
                                     <div class="form-group">
                                         <label for="">Nombre</label> <br>
-                                        <select class="browser-default custom-select" name="profe">
+                                        <select class="browser-default custom-select" name="profe" required>
                                             <option selected></option>
                                             <option th:each="Item : ${profes}"
                                                     th:value="${Item.names}" 
@@ -73,7 +73,7 @@
                                 <div class="col-7">
                                     <div class="form-group">
                                         <label for="">Nombre</label> <br>
-                                        <select class="browser-default custom-select" name="jefePractica">
+                                        <select class="browser-default custom-select" name="jefePractica" required>
                                             <option selected></option>
                                             <option th:each="Item : ${jefePracticas}"
                                                     th:value="${Item.names}" 
