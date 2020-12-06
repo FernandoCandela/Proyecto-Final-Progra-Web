@@ -7,11 +7,13 @@
         <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;400;700&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/7dbf90a20f.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/estilosAdminGestProfe.css">
+        <link rel="stylesheet" href="/css/style.css">
         <title>Asociar Secciones, Profesores, Alumnos</title>
     </head>
 
     <body>
-        <div class="container">
+        <th:block th:include="header"></th:block>
+        <div class="container py-3">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
@@ -26,7 +28,7 @@
                                 <div class="col-5">
                                     <div class="form-group">
                                         <label for="">Código</label> <br>
-                                        <input class="form-control" type="text" name="code" required><br>
+                                        <input class="form-control" type="text" name="code" pattern="[0-9]+" required ><br>
                                     </div>
                                 </div>
                                 <div class="col-7">
@@ -73,7 +75,7 @@
                                 <div class="col-7">
                                     <div class="form-group">
                                         <label for="">Nombre</label> <br>
-                                        <select class="browser-default custom-select" name="jefePractica" required>
+                                        <select class="browser-default custom-select" name="jefePractica">
                                             <option selected></option>
                                             <option th:each="Item : ${jefePracticas}"
                                                     th:value="${Item.names}" 
@@ -154,5 +156,7 @@
             </div>
 
         </div>
+    <th:block th:include="footer"></th:block>
+    <th:block th:include="bootstrapScripts"></th:block>
 
     </body>

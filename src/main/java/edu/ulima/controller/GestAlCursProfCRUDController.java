@@ -142,7 +142,7 @@ public class GestAlCursProfCRUDController {
         model.addAttribute("profes", profes);
         model.addAttribute("jefePracticas", jefePracticas);
 
-         return "adminAlCursProfCRUD_1";
+         return "adminAlCursProfCRUD";
     }
     
 
