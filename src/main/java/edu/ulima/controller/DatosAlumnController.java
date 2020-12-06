@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import edu.ulima.entidad.*;
 import edu.ulima.persistencia.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/datosAlum")
@@ -24,7 +25,6 @@ public class DatosAlumnController {
     public String studentInicio(Model model, HttpServletRequest req) {
 
         String user = String.valueOf(req.getSession().getAttribute("user"));
-        String student_id = String.valueOf(req.getSession().getAttribute("student_id"));
 
         model.addAttribute("user", user);
         Student Estudiante = studentRep.findByCodeOrId(Integer.parseInt(user), null);
@@ -71,20 +71,19 @@ public class DatosAlumnController {
         return "datosAlumno";
     }
 
-    /*@RequestMapping(value = "/", method = RequestMethod.POST)
-    public String actualizaCorreo(HttpServletRequest req, @RequestParam("correoProfe") String correo){
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public String actualiza(HttpServletRequest req, @RequestParam("tvuser") String twuser, 
+    @RequestParam("tvpass") String twpass, @RequestParam("anycre") String anycre) {
         System.out.println("************************");
         String user = String.valueOf(req.getSession().getAttribute("user"));
-        String teacher_id = String.valueOf(req.getSession().getAttribute("teacher_id"));
         System.out.println(user);
-        Teacher Profe = teacherRep.findByCodeOrId(Integer.parseInt(user), null);
-        System.out.println(Profe);
-        Profe.setEmail(correo);
-        System.out.println(Profe.getEmail());
-        teacherRep.save(Profe);
-        
+        Student Alumno = studentRep.findByCodeOrId(Integer.parseInt(user), null);
+        Alumno.setTw_user(twuser);
+        Alumno.setTw_pass(twpass);
+        Alumno.setAd_user(anycre);
+        studentRep.save(Alumno);
+
         System.out.println("************************");
         return "inicioProfesor";
     }
-     */
 }
