@@ -84,6 +84,6 @@ public class DatosAlumnController {
         studentRep.save(Alumno);
 
         System.out.println("************************");
-        return "inicioProfesor";
+        return "inicioAlumno";
     }
 }

@@ -54,6 +54,7 @@ public class AdminEditCursoCRUD {
         Course Curso = couRep.findByCode(Integer.parseInt(id));
         Curso.setName(name);
         Curso.setCareer_id(carrRep.findByName(career));
+        couRep.save(Curso);
         return "redirect:/admin/gestionCurso/";
     }
 }

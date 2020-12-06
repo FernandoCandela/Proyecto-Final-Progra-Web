@@ -32,6 +32,6 @@ public class AdminEditSeccCRUD {
     public String getIndex(Model model, @PathVariable("y") String y){
         id = y;
         
-        return "adminAlCursProfCRUDEditar";
+        return "adminAlCursProfCRUD_1";
     }
 }
