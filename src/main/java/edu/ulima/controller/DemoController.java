@@ -15,11 +15,11 @@ public class DemoController {
 
     @Autowired
     private SectionRepositorio secRep;
-    
+
     @Autowired
     private SectionTeacherRepositorio secteRep;
-    
-     @Autowired
+
+    @Autowired
     private TeacherRepositorio teaRep;
 
     /*@RequestMapping(value = "/admin/gestionAlum")
@@ -40,22 +40,14 @@ public class DemoController {
     public String seccionesProfe(Model model, HttpServletRequest req) {
         String user = String.valueOf(req.getSession().getAttribute("user"));
         String teacher_id = String.valueOf(req.getSession().getAttribute("teacher_id"));
- /*     
-        Teacher tea = teaRep.findByIde(Integer.parseInt(teacher_id));
-        List<SectionTeacher> scT = secteRep.findByTeacher_id(tea);
-        List<Section> secciones = new ArrayList<>();
-        
-        for (int i = 0; i < scT.size(); i++) {
-            Section sec= secRep.findByIde(scT.get(i).getIde());
-            secciones.add(sec);
-        }
-         
+
+        List<Section> secciones = secRep.findAll();
 
         model.addAttribute("secciones", secciones);
-*//*
-        return "profeVerSeccion";
-    }*/
 
+        return "profeVerSeccion";
+    }
+*/
     /*@RequestMapping(value = "/admin/gestionProfe")
     public String adminGestionProf() {
         return "adminGestCargProfe";

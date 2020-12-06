@@ -1,16 +1,18 @@
-
 package edu.ulima.controller;
 
 import edu.ulima.clienterest.Student1;
 import edu.ulima.clienterest.VerSeccion1;
 import edu.ulima.entidad.Career;
 import edu.ulima.entidad.Gender;
+import edu.ulima.entidad.Section;
 import edu.ulima.entidad.Student;
 import edu.ulima.persistencia.CareerRepositorio;
 import edu.ulima.persistencia.GenderRepositorio;
+import edu.ulima.persistencia.SectionRepositorio;
 import edu.ulima.persistencia.StudentRepositorio;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -21,7 +23,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
 @Controller
 //@RequestMapping("/admin/gestionAlum")
 
@@ -29,12 +30,26 @@ public class ProfeVerSec {
 
     @Autowired
     private StudentRepositorio stdRep;
+
+    @Autowired
     private GenderRepositorio geRep;
+
+    @Autowired
     private CareerRepositorio caRep;
 
+    @Autowired
+    private SectionRepositorio secRep;
+
     @RequestMapping({"/seccionesProfe"})
-    public String verSeccion(Model model,
+    public String verSeccion(Model model,HttpServletRequest req,
             @RequestParam(value = "page", defaultValue = "1") int page) {
+
+        String user = String.valueOf(req.getSession().getAttribute("user"));
+        String teacher_id = String.valueOf(req.getSession().getAttribute("teacher_id"));
+
+        List<Section> secciones = secRep.findAll();
+
+        model.addAttribute("secciones", secciones);
 
         // -------------- Inicio algoritmos de paginacion
         final int maxResult = 6; // Cantidad de resultados por pagina
@@ -96,7 +111,7 @@ public class ProfeVerSec {
 
         for (Student s : result0) {
 
-            VerSeccion1 vs1 = new VerSeccion1(s.getCode(), s.getNames(), s.getLast_names(), s.getAd_user(), s.getTw_user(),s.getTw_pass());
+            VerSeccion1 vs1 = new VerSeccion1(s.getCode(), s.getNames(), s.getLast_names(), s.getAd_user(), s.getTw_user(), s.getTw_pass());
 
             ltmp.add(vs1);
             System.out.println("******************************************************************");
@@ -113,14 +128,5 @@ public class ProfeVerSec {
 
         return "profeVerSeccion";
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
 }
