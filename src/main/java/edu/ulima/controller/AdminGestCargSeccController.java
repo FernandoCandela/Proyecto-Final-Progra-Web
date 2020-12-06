@@ -94,7 +94,7 @@ public class AdminGestCargSeccController {
         for (Section sc : result0) {
 
             Section1 sc1 = new Section1();
-
+            sc1.setCode(sc.getCode());
             Course ide_co = sc.getCourse_id();
             sc1.setCourse_name(ide_co.getName());
             sc1.setCourse_code(ide_co.getCode());
@@ -108,24 +108,12 @@ public class AdminGestCargSeccController {
             System.out.println(id_seccion);
 
             System.out.println("************************aki******************************************");
-            /*
-            SectionTeacher sctea = sctRep.findBySection_id(sc);
 
-            if (sctea != null) {
-                Systm.out.println(sctea);
-
-                Teacher te1 = sctea.getTeacher_id();
-
-
-                sc1.setTeacher_name(te1.getNames());
-                System.out.println(te1.getNames());
-
-                ltmp.add(sc1);
-                System.out.println(sc1);
-                System.out.println("******************************************************************");
-                System.out.println(ltmp);
-            }
-*/
+            ltmp.add(sc1);
+            System.out.println(sc1);
+            System.out.println("******************************************************************");
+            System.out.println(ltmp);
+ 
         }
 
         // Generar una pagina
@@ -138,7 +126,7 @@ public class AdminGestCargSeccController {
 
         return "adminGestSecc";
     }
-    
+
     @RequestMapping(value = "/admin/gestionSec/ir", method = RequestMethod.POST)
     public String irAgegarSec() {
         return "redirect:/agregarSeccion";
