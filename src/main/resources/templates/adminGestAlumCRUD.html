@@ -30,19 +30,19 @@
                                 <div class="col-sm-12 col-md-12 col-lg-3">
                                     <div class="form-group">
                                         <label>Código</label>
-                                        <input class="form-control" type="text" name="code">
+                                        <input class="form-control" type="text" name="code" minlength="5" maxlength="5" pattern="[0-9]+" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-md-6 col-lg-4">
                                     <div class="form-group">
                                         <label>Nombres</label>
-                                        <input class="form-control" type="text" name="names">
+                                        <input class="form-control" type="text" name="names" maxlength="50" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-md-6 col-lg-5">
                                     <div class="form-group">
                                         <label>Apellidos</label>
-                                        <input class="form-control" type="text" name="last_names">
+                                        <input class="form-control" type="text" name="last_names" maxlength="50" required>
                                     </div>
                                 </div>
                             </div>
@@ -51,13 +51,13 @@
                                 <div class="col-sm-12 col-md-12 col-lg-6">
                                     <div class="form-group">
                                         <label for="">Correo de la Universidad</label>
-                                        <input class="form-control" type="text" name="email">
+                                        <input class="form-control" type="text" name="email" maxlength="100" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-12 col-lg-6">
                                     <div class="form-group">
                                         <label>Correo Personal</label>
-                                        <input class="form-control" type="text" name="personal_email">
+                                        <input class="form-control" type="text" name="personal_email" maxlength="100" required>
                                     </div>
                                 </div>
                             </div>
@@ -65,8 +65,8 @@
                                 <div class="col-sm-12 col-md-12 col-lg-4">
                                     <div class="form-group">
                                         <label>Género</label>
-                                        <select class="browser-default custom-select" name="gender_id" >
-                                            <option selected></option>
+                                        <select class="browser-default custom-select" name="gender_id" required>
+                                            <option value="" selected disabled>---Seleccione---</option>
                                             <option th:each="Item : ${generos}"
                                                     th:value="${Item.name}" 
                                                     th:text="${Item.name}"
@@ -78,8 +78,8 @@
                                 <div class="col-sm-12 col-md-6 col-lg-4">
                                     <div class="form-group">
                                         <label>País</label>
-                                        <select class="browser-default custom-select" name="country_id" >
-                                            <option selected></option>
+                                        <select class="browser-default custom-select" name="country_id" required >
+                                            <option value="" selected disabled>---Seleccione---</option>
                                             <option th:each="Item : ${paises}"
                                                     th:value="${Item.name}" 
                                                     th:text="${Item.name}"
@@ -91,8 +91,8 @@
                                 <div class="col-sm-12 col-md-6 col-lg-4">
                                     <div class="form-group">
                                         <label>Carrera</label>
-                                        <select class="browser-default custom-select" name="career_id">
-                                            <option selected></option>
+                                        <select class="browser-default custom-select" name="career_id" required>
+                                            <option value="" selected disabled>---Seleccione---</option>
                                             <option th:each="Item : ${carreras}"
                                                     th:value="${Item.name}" 
                                                     th:text="${Item.name}"
@@ -106,19 +106,19 @@
                                 <div class="col-sm-12 col-md-6 col-lg-4">
                                     <div class="form-group">
                                         <label>Usuario de TeamViewer</label>
-                                        <input class="form-control" type="text" name="tw_user">
+                                        <input class="form-control" type="text" name="tw_user" maxlength="25">
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6 col-lg-4">
                                     <div class="form-group">
                                         <label>Contraseña de TeamViewer</label>
-                                        <input class="form-control" type="text" name="tw_pass">
+                                        <input class="form-control" type="text" name="tw_pass" maxlength="25">
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-12 col-lg-4">
                                     <div class="form-group">
                                         <label>Credenciales de AnyDesk</label>
-                                        <input class="form-control" type="text" name="ad_user">
+                                        <input class="form-control" type="text" name="ad_user" maxlength="25">
                                     </div>
                                 </div>
                             </div>
@@ -127,7 +127,7 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label>URL foto</label>
-                                        <input class="form-control" type="text" name="photo_url">
+                                        <input class="form-control" type="text" name="photo_url" maxlength="100" required>
                                     </div>
                                 </div>
 
