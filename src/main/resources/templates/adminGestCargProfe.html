@@ -11,9 +11,9 @@
         <link rel="stylesheet" href="/css/estilosAdminGestProfe.css">
         <link rel="stylesheet" href="/css/style.css">
         <title>Cargar Profesor</title>
-        <!--<script type="text/javascript">
+        <script>
                 const BASE_URL = "http://localhost:8080";
-        </script>-->
+        </script>
     </head>
 
     <body>
@@ -26,9 +26,9 @@
                         <h5>Gestión de Profesores</h5>
                     </div>
                 </div>
-                <form action="/admin/gestionProfe/" method="POST"> 
+               
                     <div class="row">
-
+                         <form action="/admin/gestionProfe/" method="POST">    
                         <div class="col-2">
                             <div class="form-group">
                                 <label for="">Código</label> <br>
@@ -45,6 +45,8 @@
                             <br>
                             <button class="btn btn-success"><i class="fas fa-search"></i>  Buscar</button>
                         </div>
+                        </form>
+
                         <div class="col-3">
                             <h7>Carga masiva</h7>
                             <span class="btn btn-primary btn-file">
@@ -53,11 +55,10 @@
                         </div>
                         <div class="col-2">
                             <br>
-                            <button class="btn btn-warning"><i class="fas fa-cloud-upload-alt"></i>  Subir</button>
+                            <button class="btn btn-warning" id = "btnSubirData"><i class="fas fa-cloud-upload-alt"></i>  Subir</button>
                         </div>
 
                     </div><br>
-                </form>
                 <div class="row">
                     <div class="col-10" id="tablaGestion">
 
@@ -141,5 +142,5 @@
     })
 })
 </script>
-<!--<script src="/js/generarTabla.js"></script>-->
+<script src="/js/subidaCSV.js"></script>
     </body>
